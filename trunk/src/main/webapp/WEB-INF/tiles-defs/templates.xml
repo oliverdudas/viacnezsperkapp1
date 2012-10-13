@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+    <!-- Default Main Template -->
+    <definition name="mainTemplate" template="/WEB-INF/jsp/templates/main.jsp">
+        <!--TITLE-->
+        <!--<put-attribute name="title" value="/WEB-INF/jsp/templates/title.jsp"/>-->
+        <!--HEAD-->
+        <!--<put-attribute name="styles" value="/WEB-INF/jsp/templates/styles.jsp"/>-->
+        <!--<put-attribute name="javascripts" value="/WEB-INF/jsp/templates/javascripts.jsp"/>-->
+        <!--<put-attribute name="ga" value="/WEB-INF/jsp/templates/ga.jsp"/>-->
+        <!--HEADER-->
+        <!--<put-attribute name="top" value="/WEB-INF/jsp/templates/header/top.jsp"/>-->
+        <!--CONTENT-->
+        <put-attribute name="content" value="/WEB-INF/jsp/templates/empty.jsp"/>
+        <!--FOOTER-->
+        <!--<put-attribute name="footer" value="/WEB-INF/jsp/templates/footer/footer.jsp"/>-->
+    </definition>
+
+    <!--Dynamic content-->
+    <definition name="*" extends="mainTemplate">
+        <put-attribute name="content" value="/WEB-INF/jsp/{1}.jsp"/>
+    </definition>
+
+    <definition name="*/*" extends="mainTemplate">
+        <put-attribute name="content" value="/WEB-INF/jsp/{1}/{2}.jsp"/>
+    </definition>
+
+    <definition name="*/*/*" extends="mainTemplate">
+        <put-attribute name="content" value="/WEB-INF/jsp/{1}/{2}/{3}.jsp"/>
+    </definition>
+
+
+</tiles-definitions>
