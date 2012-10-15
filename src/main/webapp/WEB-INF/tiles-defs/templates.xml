@@ -8,17 +8,19 @@
     <!-- Default Main Template -->
     <definition name="mainTemplate" template="/WEB-INF/jsp/templates/main.jsp">
         <!--TITLE-->
-        <!--<put-attribute name="title" value="/WEB-INF/jsp/templates/title.jsp"/>-->
+        <put-attribute name="title" value="/WEB-INF/jsp/templates/title.jsp"/>
         <!--HEAD-->
-        <!--<put-attribute name="styles" value="/WEB-INF/jsp/templates/styles.jsp"/>-->
-        <!--<put-attribute name="javascripts" value="/WEB-INF/jsp/templates/javascripts.jsp"/>-->
+        <put-attribute name="styles" value="/WEB-INF/jsp/templates/styles.jsp"/>
+        <put-attribute name="javascripts" value="/WEB-INF/jsp/templates/javascripts.jsp"/>
         <!--<put-attribute name="ga" value="/WEB-INF/jsp/templates/ga.jsp"/>-->
         <!--HEADER-->
-        <!--<put-attribute name="top" value="/WEB-INF/jsp/templates/header/top.jsp"/>-->
+        <put-attribute name="header" value="/WEB-INF/jsp/templates/header/header.jsp"/>
+
+        <put-attribute name="section" value="/WEB-INF/jsp/templates/section/section.jsp"/>
         <!--CONTENT-->
         <put-attribute name="content" value="/WEB-INF/jsp/templates/empty.jsp"/>
         <!--FOOTER-->
-        <!--<put-attribute name="footer" value="/WEB-INF/jsp/templates/footer/footer.jsp"/>-->
+        <put-attribute name="footer" value="/WEB-INF/jsp/templates/footer/footer.jsp"/>
     </definition>
 
     <!--Dynamic content-->

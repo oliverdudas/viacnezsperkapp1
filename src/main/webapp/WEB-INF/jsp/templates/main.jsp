@@ -11,31 +11,34 @@
         <meta name="language" content="SK"/>
         <meta http-equiv="Content-Language" content="sk"/>
         <meta name="description" content="Robecca's Fashion"/>
-        <meta name="keywords" content="robecca,fashion,katarina,drappanova"/>
-        <%--<title><tiles:insertAttribute name="title"/></title>--%>
+        <meta name="keywords" content="viacnezsperk,deti,sperk"/>
+        <title><tiles:insertAttribute name="title"/></title>
 
-        <%--<tiles:insertAttribute name="styles"/>--%>
-        <%--<tiles:insertAttribute name="javascripts"/>--%>
+        <tiles:insertAttribute name="styles"/>
+        <tiles:insertAttribute name="javascripts"/>
         <%--<tiles:insertAttribute name="ga"/>--%>
 
     </head>
 
     <body>
 
-        <div id="pageWrapper">
+        <div id="main">
 
-            <%--<div id="topWrapper">--%>
-                <%--<jsp:include page="header/top.jsp" />--%>
-            <%--</div>--%>
+            <header>
+                <tiles:insertAttribute name="header"/>
+            </header>
 
-            <div id="contentWrapper">
+            <section>
+                <tiles:insertAttribute name="section"/>
+            </section>
+
+            <div class="container">
                 <tiles:insertAttribute name="content"/>
             </div>
 
-            <%--<div id="footerWrapper">--%>
-                <%--<tiles:insertAttribute name="footer"/>--%>
-            <%--</div>--%>
-
+            <footer>
+                <tiles:insertAttribute name="footer"/>
+            </footer>
         </div>
 
     </body>

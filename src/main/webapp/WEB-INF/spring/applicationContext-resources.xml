@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+    <bean id="messageSource"
+          class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="fallbackToSystemLocale" value="false"/>
+        <property name="useCodeAsDefaultMessage" value="true"/>
+        <property name="basenames">
+            <array>
+                <value>classpath:messages</value>
+            </array>
+        </property>
+    </bean>
+
+    <!--<bean id="messageSourceAccessor"-->
+    <!--class="org.springframework.context.support.MessageSourceAccessor">-->
+    <!--<constructor-arg name="messageSource" ref="messages"/>-->
+    <!--</bean>-->
+
+    <!--<bean name="messagesAccessor" class="sk.asol.ispinpod.common.Messages" factory-method="getInstance"/>-->
+
+</beans>
