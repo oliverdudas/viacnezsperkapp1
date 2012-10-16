@@ -64,6 +64,7 @@ header .grid_2 {
 .contentWrapper {
     margin-left: 5px;
     margin-right: 5px;
+    padding-left: 20px;
 }
 
 .logo {
@@ -157,4 +158,40 @@ ul.nav a {
 ul.nav a {
     display: block;
     position: relative;
+}
+
+.denied {
+    color: #FF0000;
+}
+
+.adminmenu {
+    margin-top: 30px;
+}
+
+.adminmenu a {
+    padding: 20px 0;
+}
+
+.tableWrapper {
+    background: none repeat scroll 0 0 #DCDCDC;
+    border: 1px solid #FFFFFF;
+    border-radius: 14px 14px 14px 14px;
+    margin: 30px auto 2em;
+    overflow: hidden;
+    padding: 20px;
+    display: inline-block;
+}
+
+.tableWrapper tbody tr {
+    cursor: pointer;
+}
+
+.tableWrapper tbody tr td div:hover {
+    background-color: #000;
+    color: #FFF;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.tableWrapper tbody td div, .tableWrapper thead th {
+    padding: 5px;
 }

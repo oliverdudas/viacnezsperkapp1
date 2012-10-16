@@ -15,11 +15,16 @@
         <nav>
             <ul class="nav">
                 <li>
-                    <a href="<c:url value="/home"/>"><fmt:message key="welcome" /></a>
+                    <a href="<c:url value="/home"/>"><fmt:message key="welcome"/></a>
                 </li>
+                <security:authorize ifAnyGranted="ROLE_ADMIN">
+                    <li>
+                        <a href="<c:url value="/admin/menu"/>"><fmt:message key="admin"/></a>
+                    </li>
+                </security:authorize>
                 <security:authorize ifAnyGranted="ROLE_USER">
                     <li>
-                        <a href="<c:url value="/logout"/>"><fmt:message key="logout" /></a>
+                        <a href="<c:url value="/logout"/>"><fmt:message key="logout"/></a>
                     </li>
                 </security:authorize>
             </ul>

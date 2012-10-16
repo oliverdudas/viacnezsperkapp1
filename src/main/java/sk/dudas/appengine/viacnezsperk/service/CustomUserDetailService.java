@@ -44,23 +44,26 @@ public class CustomUserDetailService extends BaseManagerImpl<Key, User> implemen
 
         UserDetails admin = loadUserByUsername(ADMIN);
         if (admin == null) {
-
-//            Role roleUser = initRole(Role.ROLE_USER);
-            Role roleUser = new Role(Role.ROLE_USER);
-//            Role roleAdmin = initRole(Role.ROLE_ADMIN);
-            Role roleAdmin = new Role(Role.ROLE_ADMIN);
-
-            User user = new User();
-            PasswordEncoder encoder = new Md5PasswordEncoder();
-            String hashedPass = encoder.encodePassword(ADMIN, null);
-            user.setPassword(hashedPass);
-            user.setUsername(ADMIN);
-            ArrayList<Role> roles = new ArrayList<Role>();
-            roles.add(roleUser);
-            roles.add(roleAdmin);
-            user.setRoles(roles);
-            persistEntity(user);
+            addUser(ADMIN, Role.ROLE_ADMIN, Role.ROLE_USER);
+            addUser("fero", Role.ROLE_USER);
+            addUser("jozo", Role.ROLE_USER);
+            addUser("dezi", Role.ROLE_USER);
+            addUser("pepi", Role.ROLE_USER);
         }
+    }
+
+    private void addUser(String namePass, String... roleNames) {
+        User user = new User();
+        PasswordEncoder encoder = new Md5PasswordEncoder();
+        String hashedPass = encoder.encodePassword(namePass, null);
+        user.setPassword(hashedPass);
+        user.setUsername(namePass);
+        ArrayList<Role> roles = new ArrayList<Role>();
+        for (String roleName : roleNames) {
+            roles.add(new Role(roleName));
+        }
+        user.setRoles(roles);
+        persistEntity(user);
     }
 
     private Role initRole(String rolename) {

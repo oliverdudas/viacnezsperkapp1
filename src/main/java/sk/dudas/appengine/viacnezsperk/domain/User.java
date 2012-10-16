@@ -68,4 +68,17 @@ public class User extends BaseEntity implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    public boolean hasRole(String rolename) {
+        if (roles == null || roles.size() == 0) {
+            return false;
+        } else {
+            for (Role role : roles) {
+                if (role.getName().equals(rolename)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

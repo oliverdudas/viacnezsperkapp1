@@ -16,9 +16,10 @@
     <context:annotation-config/>
     <context:component-scan base-package="sk.dudas.appengine.viacnezsperk.controller"/>
 
-    <!--<mvc:view-controller path="/" view-name="home"/>-->
+    <mvc:view-controller path="/" view-name="home"/>
     <mvc:view-controller path="/login"/>
     <mvc:view-controller path="/home"/>
+    <mvc:view-controller path="/admin/menu"/>
     <mvc:view-controller path="/denied"/>
 
     <bean id="tilesConfigurer"
