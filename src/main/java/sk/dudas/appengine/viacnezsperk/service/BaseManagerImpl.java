@@ -80,6 +80,10 @@ public abstract class BaseManagerImpl<K, E extends BaseEntity> implements BaseMa
         return baseDao.findById(id);
     }
 
+    public E findById(long id) {
+        return baseDao.findById(id);
+    }
+
     public <T extends BaseEntity> T findEntityById(T entity) {
         return baseDao.findEntityById(entity);
     }
