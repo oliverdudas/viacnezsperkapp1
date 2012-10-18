@@ -26,7 +26,7 @@
         <session-management session-fixation-protection="newSession"/>
     </http>
 
-    <authentication-manager>
+    <authentication-manager alias="authenticationManager">
         <authentication-provider user-service-ref="customUserDetailService">
             <password-encoder hash="md5"/>
         </authentication-provider>
