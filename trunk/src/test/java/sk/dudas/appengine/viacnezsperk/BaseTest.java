@@ -30,6 +30,7 @@ public abstract class BaseTest extends AbstractJUnit4SpringContextTests {
         LocalDatastoreServiceTestConfig localDatastoreServiceTestConfig = new LocalDatastoreServiceTestConfig();
         localDatastoreServiceTestConfig.setBackingStoreLocation("local_db.bin");
         localDatastoreServiceTestConfig.setNoStorage(false);
+        localDatastoreServiceTestConfig.setNoIndexAutoGen(false);
         helper = new LocalServiceTestHelper(localDatastoreServiceTestConfig);
         helper.setUp();
     }
@@ -37,6 +38,6 @@ public abstract class BaseTest extends AbstractJUnit4SpringContextTests {
     @After
     public void tearDown() {
         // remove tearDown to save test persistent actions
-        helper.tearDown();
+//        helper.tearDown();
     }
 }

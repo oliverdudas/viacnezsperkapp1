@@ -68,6 +68,10 @@ public abstract class BaseDaoJpa<K, E extends BaseEntity> extends JpaDaoSupport 
         return getJpaTemplate().find(entityClass, id);
     }
 
+    public E findById(long id) {
+        return getJpaTemplate().find(entityClass, id);
+    }
+
     public <T extends BaseEntity> T findEntityById(T entity) {
         return (T) findEntityById(entity.getClass(), entity.getKey());
     }

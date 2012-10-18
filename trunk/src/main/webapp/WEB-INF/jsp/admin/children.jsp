@@ -1,11 +1,23 @@
+<%@ page import="sk.dudas.appengine.viacnezsperk.controller.UserController" %>
 <%@ include file="../includes.jsp" %>
+
+<c:url value="/admin/childForm" var="childFormUrl"/>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.tableWrapper table tbody tr').click(function(e) {
+            var id = $(this).attr('id');
+            window.location = '${childFormUrl}?id=' + id;
+        });
+    });
+</script>
 
 <div class="contentWrapper">
 
     <h2 style="display: inline-block;"><fmt:message key="children.list"/></h2>
 
     <div>
-        <a href="/admin/addChild"><fmt:message key="add.child" /></a>
+        <a href="<%=UserController.ADMIN_CHILD_FORM_VIEW%>"><fmt:message key="add.child" /></a>
     </div>
 
     <div style="text-align: center">
@@ -20,7 +32,7 @@
                 </thead>
                 <tbody>
                 <c:forEach items="${all}" var="child">
-                    <tr>
+                    <tr id="${child.key.id}">
                         <td>
                             <div>${child.username}</div>
                         </td>

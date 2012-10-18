@@ -41,6 +41,8 @@ public interface BaseManager<K, E> {
 
     E findById(K id);
 
+    E findById(long id);
+
     <T extends BaseEntity> T findEntityById(T entity);
 
     <T extends BaseEntity, I> T findEntityById(Class<T> clazz, I id);
