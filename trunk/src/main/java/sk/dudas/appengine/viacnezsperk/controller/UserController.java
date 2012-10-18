@@ -23,7 +23,7 @@ import java.util.logging.Logger;
  * To change this template use File | Settings | File Templates.
  */
 @Controller("userController")
-@SessionAttributes(value = "user")
+@SessionAttributes(value = "child")
 public class UserController {
 
     private static final Logger logger = Logger.getLogger(UserController.class.getName());
@@ -39,9 +39,13 @@ public class UserController {
         modelMap.addAttribute("all", all);
     }
 
-    @RequestMapping(value = "/admin/addChild", method = RequestMethod.GET)
-    public void form(ModelMap modelMap) {
-        logger.log(Level.INFO, "Zoznam deti");
+    @RequestMapping(value = "/admin/childForm", method = RequestMethod.GET)
+    public void form(ModelMap modelMap, @RequestParam(required = false) Long id) {
+        if (id == null) {
+            logger.log(Level.INFO, "Creating child.");
+            modelMap.addAttribute("child", new User());
+        } else {
+        }
 
 
         List<User> all = userManager.findAll();

@@ -37,42 +37,6 @@ public class CustomUserDetailService extends BaseManagerImpl<Key, User> implemen
     @PostConstruct
     public final void init() {
         super.setBaseDao(dao);
-        initAdminUser();
-    }
-
-    private void initAdminUser() {
-
-        UserDetails admin = loadUserByUsername(ADMIN);
-        if (admin == null) {
-            addUser(ADMIN, Role.ROLE_ADMIN, Role.ROLE_USER);
-            addUser("fero", Role.ROLE_USER);
-            addUser("jozo", Role.ROLE_USER);
-            addUser("dezi", Role.ROLE_USER);
-            addUser("pepi", Role.ROLE_USER);
-        }
-    }
-
-    private void addUser(String namePass, String... roleNames) {
-        User user = new User();
-        PasswordEncoder encoder = new Md5PasswordEncoder();
-        String hashedPass = encoder.encodePassword(namePass, null);
-        user.setPassword(hashedPass);
-        user.setUsername(namePass);
-        ArrayList<Role> roles = new ArrayList<Role>();
-        for (String roleName : roleNames) {
-            roles.add(new Role(roleName));
-        }
-        user.setRoles(roles);
-        persistEntity(user);
-    }
-
-    private Role initRole(String rolename) {
-        Role roleUser = dao.loadRoleByRolename(rolename);
-        if (roleUser == null) {
-            roleUser = new Role(rolename);
-            persistEntity(roleUser);
-        }
-        return roleUser;
     }
 
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
