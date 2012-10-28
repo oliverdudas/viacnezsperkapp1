@@ -115,7 +115,7 @@ public class UserController {
     }
 
     @RequestMapping(value = ADMIN_CHILD_FORM_VIEW, method = RequestMethod.POST, params = "uploadImage")
-    public String upload(@ModelAttribute(value = CHILD_COMMAND) User child, HttpServletRequest request) throws ServiceException, IOException {
+    public void upload(@ModelAttribute(value = CHILD_COMMAND) User child, HttpServletRequest request) throws ServiceException, IOException {
         GMultipartFile file = (GMultipartFile) ((DefaultMultipartHttpServletRequest) request).getFileMap().get("file");
 
         String userId = "104004273393078620402"; //oliver.dudas@viacnezsperk.sk
@@ -124,9 +124,9 @@ public class UserController {
         URL albumPostUrl = new URL("https://picasaweb.google.com/data/feed/api/user/" + userId + "/albumid/" + albumid);
 
         PhotoEntry myPhoto = new PhotoEntry();
-        myPhoto.setTitle(new PlainTextConstruct("Puppies FTW"));
-        myPhoto.setDescription(new PlainTextConstruct("Puppies are the greatest."));
-        myPhoto.setClient("myClientName");
+        myPhoto.setTitle(new PlainTextConstruct(file.getOriginalFilename()));
+        myPhoto.setDescription(new PlainTextConstruct(file.getOriginalFilename()));
+//        myPhoto.setClient("myClientName");
 
         MediaStreamSource myMedia = new MediaStreamSource(file.getInputStream(), "image/jpeg");
         myPhoto.setMediaSource(myMedia);
@@ -140,8 +140,6 @@ public class UserController {
 
         String photoUri = ((MediaContent) returnedPhoto.getContent()).getUri();
         child.setMainURL(photoUri);
-
-        return ADMIN_CHILD_FORM_VIEW;
     }
 
     @RequestMapping(value = ADMIN_CHILD_FORM_VIEW, method = RequestMethod.POST, params = "cancel")
