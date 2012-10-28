@@ -9,6 +9,7 @@
     <url>http://deti.viacnezsperk.sk</url>
 
     <properties>
+        <gdata.version>1.41.5.w1</gdata.version>
         <gae.version>1.7.2.1</gae.version>
         <!--<gae.version>1.4.2</gae.version>-->
         <spring.version>3.1.2.RELEASE</spring.version>
@@ -51,6 +52,27 @@
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
             <scope>provided</scope>
+        </dependency>
+        <!--Beacause of spring mvc file upload. Spring's multipart resolver uses DiskFileItem, which is forbidden in gae-->
+        <!--<dependency>-->
+        <!--<groupId>gmultipart</groupId>-->
+        <!--<artifactId>gmultipart</artifactId>-->
+        <!--<version>0.3</version>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>gmultipart</groupId>
+            <artifactId>gmultipart</artifactId>
+            <version>0.4</version>
         </dependency>
         <!-- A seamless aspect-oriented extension to the Java programming language -->
         <dependency>
@@ -101,16 +123,29 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-        	<groupId>com.google.appengine</groupId>
-        	<artifactId>appengine-testing</artifactId>
-        	<version>${gae.version}</version>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-testing</artifactId>
+            <version>${gae.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-        	<groupId>com.google.appengine</groupId>
-        	<artifactId>appengine-api-stubs</artifactId>
-        	<version>${gae.version}</version>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-stubs</artifactId>
+            <version>${gae.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <!--Google GDATA-->
+        <!--<dependency>-->
+            <!--<groupId>org.openengsb.wrapped</groupId>-->
+            <!--<artifactId>com.google.gdata</artifactId>-->
+            <!--<version>${gdata.version}</version>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>com.google.gdata.gdata-java-client</groupId>
+            <artifactId>gdata-photos-2.0</artifactId>
+            <version>1.41.0</version>
         </dependency>
 
         <!--Google's AppEngine Datanucleus ORM-->
@@ -236,18 +271,26 @@
             <id>mvnrepository</id>
             <url>http://mvnrepository.com</url>
         </repository>
+        <repository>
+            <id>maven.burtsev</id>
+            <url>http://maven.burtsev.net</url>
+        </repository>
+        <!--<repository>-->
+            <!--<id>gmultipart</id>-->
+            <!--<url>http://gmultipart.googlecode.com/svn/repo/m2</url>-->
+        <!--</repository>-->
     </repositories>
 
     <build>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.12.4</version>
-          <configuration>
-            <skipTests>true</skipTests>
-          </configuration>
-        </plugin>
-      </plugins>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.12.4</version>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>

@@ -1,9 +1,18 @@
 package sk.dudas.appengine.viacnezsperk.controller;
 
+import com.google.appengine.api.datastore.Blob;
+import com.google.gdata.client.photos.PicasawebService;
+import com.google.gdata.data.MediaContent;
+import com.google.gdata.data.PlainTextConstruct;
+import com.google.gdata.data.media.MediaByteArraySource;
+import com.google.gdata.data.media.MediaFileSource;
+import com.google.gdata.data.media.MediaStreamSource;
+import com.google.gdata.data.photos.PhotoEntry;
+import com.google.gdata.util.AuthenticationException;
+import com.google.gdata.util.ServiceException;
+import org.gmr.web.multipart.GMultipartFile;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PagedListHolder;
-import org.springframework.beans.support.SortDefinition;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -11,12 +20,18 @@ import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.support.DefaultMultipartHttpServletRequest;
 import sk.dudas.appengine.viacnezsperk.controller.bind.CustomUserPasswordBinder;
 import sk.dudas.appengine.viacnezsperk.domain.Role;
 import sk.dudas.appengine.viacnezsperk.domain.User;
 import sk.dudas.appengine.viacnezsperk.service.UserManager;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -38,6 +53,7 @@ public class UserController {
     public static final String ADMIN_CHILDREN_VIEW = "/admin/children";
     public static final String CHILD_COMMAND = "child";
     private static final String LIST_HOLDER = "listHolder";
+    private static final String HOLDER = "holder";
 
     @Autowired
     private UserManager userManager;
@@ -60,9 +76,9 @@ public class UserController {
             pagedListHolder.setPageSize(pageSize);
         }
         pagedListHolder.setPage(p);
-        modelMap.addAttribute("holder", pagedListHolder);
+        modelMap.addAttribute(HOLDER, pagedListHolder);
 
-        ServletRequestDataBinder binder = new ServletRequestDataBinder(pagedListHolder, "holder");
+        ServletRequestDataBinder binder = new ServletRequestDataBinder(pagedListHolder, HOLDER);
         binder.bind(request);
 
         pagedListHolder.resort();
@@ -81,7 +97,7 @@ public class UserController {
         modelMap.addAttribute(CHILD_COMMAND, child);
     }
 
-    @RequestMapping(value = ADMIN_CHILD_FORM_VIEW, method = RequestMethod.POST, params = "!cancel")
+    @RequestMapping(value = ADMIN_CHILD_FORM_VIEW, method = RequestMethod.POST, params = "childFormSubmit")
     public String form(@ModelAttribute(value = CHILD_COMMAND) User child, BindingResult bindingResult, SessionStatus sessionStatus) {
         if (bindingResult.hasErrors()) {
             return ADMIN_CHILD_FORM_VIEW;
@@ -98,8 +114,39 @@ public class UserController {
         child.setRoles(roles);
     }
 
+    @RequestMapping(value = ADMIN_CHILD_FORM_VIEW, method = RequestMethod.POST, params = "uploadImage")
+    public String upload(@ModelAttribute(value = CHILD_COMMAND) User child, HttpServletRequest request) throws ServiceException, IOException {
+        GMultipartFile file = (GMultipartFile) ((DefaultMultipartHttpServletRequest) request).getFileMap().get("file");
+
+        String userId = "104004273393078620402"; //oliver.dudas@viacnezsperk.sk
+        String albumid = "5804367311941076033"; //viacnezsperk album on oliver.dudas@viacnezsperk.sk account
+
+        URL albumPostUrl = new URL("https://picasaweb.google.com/data/feed/api/user/" + userId + "/albumid/" + albumid);
+
+        PhotoEntry myPhoto = new PhotoEntry();
+        myPhoto.setTitle(new PlainTextConstruct("Puppies FTW"));
+        myPhoto.setDescription(new PlainTextConstruct("Puppies are the greatest."));
+        myPhoto.setClient("myClientName");
+
+        MediaStreamSource myMedia = new MediaStreamSource(file.getInputStream(), "image/jpeg");
+        myPhoto.setMediaSource(myMedia);
+
+        PicasawebService myService = new PicasawebService("viacnezsperk");
+        myService.setReadTimeout(1000000);
+        myService.setConnectTimeout(1000000);
+        myService.setUserCredentials("oliver.dudas@viacnezsperk.sk", "sperk123");
+
+        PhotoEntry returnedPhoto = myService.insert(albumPostUrl, myPhoto);
+
+        String photoUri = ((MediaContent) returnedPhoto.getContent()).getUri();
+        child.setMainURL(photoUri);
+
+        return ADMIN_CHILD_FORM_VIEW;
+    }
+
     @RequestMapping(value = ADMIN_CHILD_FORM_VIEW, method = RequestMethod.POST, params = "cancel")
     public String cancel() {
         return "redirect:" + ADMIN_CHILDREN_VIEW;
     }
+
 }

@@ -9,10 +9,6 @@
         <webroots>
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
-        <sourceRoots>
-          <root url="file://$MODULE_DIR$/src/main/java" />
-          <root url="file://$MODULE_DIR$/src/main/resources" />
-        </sourceRoots>
       </configuration>
       <facet type="google-app-engine" name="Google App Engine">
         <configuration>
@@ -52,6 +48,9 @@
     <orderEntry type="library" name="Maven: taglibs:standard:1.1.2" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.6.10" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
+    <orderEntry type="library" name="Maven: commons-fileupload:commons-fileupload:1.2.2" level="project" />
+    <orderEntry type="library" name="Maven: commons-io:commons-io:2.0.1" level="project" />
+    <orderEntry type="library" name="Maven: gmultipart:gmultipart:0.4" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.6.10" level="project" />
     <orderEntry type="library" name="Maven: cglib:cglib-nodep:2.2" level="project" />
     <orderEntry type="library" name="Maven: com.google.appengine:appengine-api-1.0-sdk:1.7.2.1" level="project" />
@@ -60,6 +59,10 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.sf.jsr107cache:jsr107cache:1.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.google.appengine:appengine-testing:1.7.2.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.google.appengine:appengine-api-stubs:1.7.2.1" level="project" />
+    <orderEntry type="library" name="Maven: com.google.gdata.gdata-java-client:gdata-photos-2.0:1.41.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.gdata.gdata-java-client:gdata-core-1.0:1.41.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.collections:google-collections:1.0-rc1" level="project" />
+    <orderEntry type="library" name="Maven: com.google.gdata.gdata-java-client:gdata-media-1.0:1.41.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.appengine.orm:datanucleus-appengine:1.0.8" level="project" />
     <orderEntry type="library" name="Maven: org.datanucleus:datanucleus-core:1.1.5" level="project" />
     <orderEntry type="library" name="Maven: javax.transaction:transaction-api:1.1" level="project" />
