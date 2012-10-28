@@ -73,4 +73,9 @@
         <location>/notFound.jsp</location>
     </error-page>
 
+    <context-param>
+      <param-name>javax.servlet.jsp.jstl.fmt.fallbackLocale</param-name>
+      <param-value>sk</param-value>
+    </context-param>
+
 </web-app>

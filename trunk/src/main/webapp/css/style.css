@@ -1,7 +1,12 @@
 body {
     background: url("../images/main-bg.jpg") repeat-x fixed center top transparent;
     color: #474747;
-    font: 100%/1.125em Georgia, "Times New Roman", Times, serif;
+    font: 100%/1.125em Georgia,"Times New Roman",Times,serif;
+    /*font-family: "Times New Roman", arial, sans-serif;*/
+    /*font-size: 1.2em;*/
+    /*font-family: verdana,helvetica,arial,sans-serif;*/
+    /*font-family: verdana,helvetica,arial,sans-serif;*/
+
     position: relative;
 }
 
@@ -9,6 +14,22 @@ html, body, div, span, object, iframe, blockquote, pre, abbr, address, cite, cod
     margin: 0;
     padding: 0;
     vertical-align: baseline;
+}
+
+h1.title {
+    margin-bottom: 0;
+}
+
+h1 {
+    color: black;
+    font-size: 36px;
+    line-height: 1.2em;
+    /*margin: 0 0 0.75em;*/
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    padding: 0;
 }
 
 #main {
@@ -172,11 +193,20 @@ ul.nav a {
     padding: 20px 0;
 }
 
+.contentTitle {
+    display: inline-block;
+}
+
+.contentMenuItem {
+    display: inline-block;
+    margin-left: 20px;
+}
+
 .tableWrapper {
     background: none repeat scroll 0 0 #DCDCDC;
     border: 1px solid #FFFFFF;
     border-radius: 14px 14px 14px 14px;
-    margin: 30px auto 2em;
+    margin: 0 auto;
     overflow: hidden;
     padding: 20px;
     display: inline-block;
@@ -186,12 +216,105 @@ ul.nav a {
     cursor: pointer;
 }
 
-.tableWrapper tbody tr td div:hover {
+.tableWrapper tbody tr:hover td.td, .tableWrapper tbody tr:hover td.firsttd, .tableWrapper tbody tr:hover td.lasttd {
     background-color: #000;
     color: #FFF;
-    border-radius: 5px 5px 5px 5px;
+    /*border-radius: 5px 5px 5px 5px;*/
 }
 
 .tableWrapper tbody td div, .tableWrapper thead th {
     padding: 5px;
+}
+
+.tableWrapper tbody tr:hover td.firsttd {
+    border-radius: 5px 0 0 5px;
+}
+
+.tableWrapper tbody tr:hover td.lasttd {
+    border-radius: 0 5px 5px 0;
+}
+
+.tableContent {
+    padding: 10px;
+    border-radius: 14px 14px 14px 14px;
+    border: 1px solid #FFF;
+}
+
+/*.tableWrapper tbody tr td:first-child {*/
+/*-moz-border-radius-topleft: 5px;*/
+/*-moz-border-radius-bottomleft: 5px;*/
+/*-webkit-border-top-left-radius: 5px;*/
+/*-webkit-border-bottom-left-radius: 5px;*/
+
+/*}*/
+
+/*.tableWrapper tbody tr td:last-child {*/
+/*-moz-border-radius-topright: 5px;*/
+/*-moz-border-radius-bottomright: 5px;*/
+/*-webkit-border-top-right-radius: 5px;*/
+/*-webkit-border-bottom-right-radius: 5px;*/
+/*}*/
+
+.formTable {
+
+}
+
+.formTable tr td {
+    padding: 5px;
+}
+
+.formTable .label {
+    color: #757475;
+}
+
+input, textarea {
+    padding: 4px;
+    border: 1px solid #9C9C9C;
+    border-radius: 5px 5px 5px 5px;
+}
+
+/*PAGINATION*/
+.pagination {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.pagingItem a {
+    border: 1px solid #FFFFFF;
+    border-radius: 5px 5px 5px 5px;
+    color: #89181E;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0;
+    padding: 2px 8px;
+    text-decoration: none !important;
+}
+
+.pagingItem a:hover {
+    border: 1px solid #89181E;
+    border-radius: 5px 5px 5px 5px;
+    color: #89181E;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.pagingItemCurrent {
+    background-color: #89181E;
+    border: 1px #89181E;
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0;
+    padding: 3px 9px;
+}
+
+.disabledItem {
+    background-color: transparent;
+    border: 1px #000;
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin: 0;
+    padding: 2px 9px;
 }
