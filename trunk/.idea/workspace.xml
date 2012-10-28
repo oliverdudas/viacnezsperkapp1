@@ -7,22 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="f175d8da-0af5-4ce7-aeb8-67abad0c79b8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_collections_google_collections_1_0_rc1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_gdata_gdata_java_client_gdata_core_1_0_1_41_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_gdata_gdata_java_client_gdata_media_1_0_1_41_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_gdata_gdata_java_client_gdata_photos_2_0_1_41_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_2_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_0_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__gmultipart_gmultipart_0_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/viacnezsperkapp1_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/viacnezsperkapp1_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/spring/spring-servlet.xml" afterPath="$PROJECT_DIR$/src/main/resources/spring/spring-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/childForm.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/childForm.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/home.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/home.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/css/style.css" afterPath="$PROJECT_DIR$/src/main/webapp/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/viacnezsperkapp1.iml" afterPath="$PROJECT_DIR$/viacnezsperkapp1.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/appengine-web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/appengine-web.xml" />
     </list>
     <ignored path="viacnezsperkapp1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -97,13 +83,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="UserController.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="UserController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="27" selection-start="1902" selection-end="1902" vertical-scroll-proportion="0.19976498">
+            <state line="41" column="46" selection-start="1798" selection-end="1798" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#4697#4703#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="appengine-web.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/appengine-web.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="36" selection-start="256" selection-end="256" vertical-scroll-proportion="0.13983549">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -166,7 +161,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/templates/javascripts.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/children.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/menu.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/security/UserAdminAuthenticationSuccessHandler.java" />
@@ -182,6 +176,7 @@
         <option value="$PROJECT_DIR$/src/main/webapp/css/style.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/home.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/appengine-web.xml" />
       </list>
     </option>
   </component>
@@ -371,66 +366,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="viacnezsperkapp1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="viacnezsperkapp1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="viacnezsperkapp1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="viacnezsperkapp1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jsp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -901,7 +836,11 @@
       <created>1351433242109</created>
       <updated>1351433242109</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="- upload">
+      <created>1351461541102</created>
+      <updated>1351461541102</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -942,7 +881,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32990867" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20440637" sideWeight="0.739726" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14075887" sideWeight="0.8059361" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24235006" sideWeight="0.8059361" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5045662" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -990,7 +929,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="- authentication success handler" />
+    <option name="LAST_COMMIT_MESSAGE" value="- upload" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1012,6 +951,7 @@
     <MESSAGE value="- 404 jsp" />
     <MESSAGE value="- vela vela ;)" />
     <MESSAGE value="- authentication success handler" />
+    <MESSAGE value="- upload" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1021,13 +961,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/gmultipart/gmultipart/0.3/gmultipart-0.3.jar!/org/gmr/web/multipart/GMultipartResolver.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="74" selection-start="220" selection-end="220" vertical-scroll-proportion="-2.72">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/gmultipart/gmultipart/0.3/gmultipart-0.3.jar!/org/gmr/web/multipart/GFileUploadSupport.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="26" selection-start="757" selection-end="764" vertical-scroll-proportion="-5.28">
@@ -1131,10 +1064,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="27" selection-start="1902" selection-end="1902" vertical-scroll-proportion="0.19976498">
+        <state line="41" column="46" selection-start="1798" selection-end="1798" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#4697#4703#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/appengine-web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="36" selection-start="256" selection-end="256" vertical-scroll-proportion="0.13983549">
+          <folding />
         </state>
       </provider>
     </entry>
