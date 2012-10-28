@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import java.util.Collection;
+import java.util.Date;
 
 /**
  * Created with IntelliJ IDEA.
@@ -21,6 +22,16 @@ public class User extends BaseEntity implements UserDetails {
 
     private String username;
     private String password;
+
+    private String firstname;
+    private String lastname;
+    private Integer age;
+    private Date created;
+    private String  createdBy;
+    private Date modified;
+    private String modifiedBy;
+    private String mainURL;
+    private String content;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Role.class)
     private Collection<Role> roles;
@@ -80,5 +91,83 @@ public class User extends BaseEntity implements UserDetails {
             }
         }
         return false;
+    }
+
+    public String getFullname() {
+        String firstname = getFirstname() != null ? getFirstname() : Constants.EMPTY;
+        String lastname = getLastname() != null ? getLastname() : Constants.EMPTY;
+        return firstname + " " + lastname;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public Date getModified() {
+        return modified;
+    }
+
+    public void setModified(Date modified) {
+        this.modified = modified;
+    }
+
+    public String getModifiedBy() {
+        return modifiedBy;
+    }
+
+    public void setModifiedBy(String modifiedBy) {
+        this.modifiedBy = modifiedBy;
+    }
+
+    public String getMainURL() {
+        return mainURL;
+    }
+
+    public void setMainURL(String mainURL) {
+        this.mainURL = mainURL;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

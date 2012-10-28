@@ -1,9 +1,13 @@
 package sk.dudas.appengine.viacnezsperk.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.support.MutableSortDefinition;
+import org.springframework.beans.support.PagedListHolder;
+import org.springframework.beans.support.SortDefinition;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
@@ -12,6 +16,7 @@ import sk.dudas.appengine.viacnezsperk.domain.Role;
 import sk.dudas.appengine.viacnezsperk.domain.User;
 import sk.dudas.appengine.viacnezsperk.service.UserManager;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -30,8 +35,9 @@ public class UserController {
 
     private static final Logger logger = Logger.getLogger(UserController.class.getName());
     public static final String ADMIN_CHILD_FORM_VIEW = "/admin/childForm";
-    private static final String ADMIN_CHILDREN_VIEW = "/admin/children";
+    public static final String ADMIN_CHILDREN_VIEW = "/admin/children";
     public static final String CHILD_COMMAND = "child";
+    private static final String LIST_HOLDER = "listHolder";
 
     @Autowired
     private UserManager userManager;
@@ -42,11 +48,24 @@ public class UserController {
     }
 
     @RequestMapping(value = ADMIN_CHILDREN_VIEW, method = RequestMethod.GET)
-    public void list(ModelMap modelMap) {
+    public void list(HttpServletRequest request, ModelMap modelMap, @RequestParam(defaultValue = "0") int p) {
         logger.log(Level.INFO, "Zoznam deti");
 
-        List<User> all = userManager.findAll();
-        modelMap.addAttribute("all", all);
+        PagedListHolder pagedListHolder = (PagedListHolder) request.getSession().getAttribute(LIST_HOLDER);
+        if (pagedListHolder == null) {
+            List<User> all = userManager.findAll();
+            pagedListHolder = new PagedListHolder(all);
+            request.getSession().setAttribute(LIST_HOLDER, pagedListHolder);
+            int pageSize = 4;
+            pagedListHolder.setPageSize(pageSize);
+        }
+        pagedListHolder.setPage(p);
+        modelMap.addAttribute("holder", pagedListHolder);
+
+        ServletRequestDataBinder binder = new ServletRequestDataBinder(pagedListHolder, "holder");
+        binder.bind(request);
+
+        pagedListHolder.resort();
     }
 
     @RequestMapping(value = ADMIN_CHILD_FORM_VIEW, method = RequestMethod.GET)
@@ -68,7 +87,7 @@ public class UserController {
             return ADMIN_CHILD_FORM_VIEW;
         } else {
             addDefaultRole(child);
-            userManager.persistOrMerge(child);
+            userManager.persistOrMergeUser(child);
             return "redirect:" + ADMIN_CHILDREN_VIEW;
         }
     }

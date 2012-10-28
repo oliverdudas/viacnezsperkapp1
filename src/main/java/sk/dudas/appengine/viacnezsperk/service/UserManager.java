@@ -12,4 +12,5 @@ import sk.dudas.appengine.viacnezsperk.domain.User;
  */
 public interface UserManager extends BaseManager<Key, User> {
 
+    void persistOrMergeUser(User user);
 }

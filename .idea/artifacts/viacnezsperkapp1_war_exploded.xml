@@ -12,7 +12,7 @@
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.6.10" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.6.10" />
           <element id="library" level="project" name="Maven: cglib:cglib-nodep:2.2" />
-          <element id="library" level="project" name="Maven: com.google.appengine:appengine-api-1.0-sdk:1.4.2" />
+          <element id="library" level="project" name="Maven: com.google.appengine:appengine-api-1.0-sdk:1.7.2.1" />
           <element id="library" level="project" name="Maven: com.google.appengine.orm:datanucleus-appengine:1.0.8" />
           <element id="library" level="project" name="Maven: org.datanucleus:datanucleus-core:1.1.5" />
           <element id="library" level="project" name="Maven: javax.transaction:transaction-api:1.1" />

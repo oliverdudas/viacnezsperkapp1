@@ -23,18 +23,10 @@
           </files-to-enhance>
           <persistence-api>JPA</persistence-api>
           <run-enhancer-on-make>true</run-enhancer-on-make>
-          <sdk-home-path>$MODULE_DIR$/../../sdk/appengine-java-sdk-1.4.2</sdk-home-path>
+          <sdk-home-path>$MODULE_DIR$/../../sdk/appengine-java-sdk-1.7.2.1</sdk-home-path>
           <email>oliverdudas@gmail.com</email>
         </configuration>
       </facet>
-    </facet>
-    <facet type="jpa" name="JPA">
-      <configuration>
-        <setting name="validation-enabled" value="true" />
-        <setting name="provider-name" value="" />
-        <datasource-mapping />
-        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
-      </configuration>
     </facet>
     <facet type="Spring" name="Spring">
       <configuration>
@@ -62,12 +54,12 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.6.10" level="project" />
     <orderEntry type="library" name="Maven: cglib:cglib-nodep:2.2" level="project" />
-    <orderEntry type="library" name="Maven: com.google.appengine:appengine-api-1.0-sdk:1.4.2" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.appengine:appengine-api-labs:1.4.2" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.appengine:appengine-jsr107cache:1.4.2" level="project" />
+    <orderEntry type="library" name="Maven: com.google.appengine:appengine-api-1.0-sdk:1.7.2.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.appengine:appengine-api-labs:1.7.2.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.appengine:appengine-jsr107cache:1.7.2.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.sf.jsr107cache:jsr107cache:1.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: com.google.appengine:appengine-testing:1.4.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: com.google.appengine:appengine-api-stubs:1.4.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.google.appengine:appengine-testing:1.7.2.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.google.appengine:appengine-api-stubs:1.7.2.1" level="project" />
     <orderEntry type="library" name="Maven: com.google.appengine.orm:datanucleus-appengine:1.0.8" level="project" />
     <orderEntry type="library" name="Maven: org.datanucleus:datanucleus-core:1.1.5" level="project" />
     <orderEntry type="library" name="Maven: javax.transaction:transaction-api:1.1" level="project" />
