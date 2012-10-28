@@ -16,10 +16,15 @@
     <context:annotation-config/>
     <context:component-scan base-package="sk.dudas.appengine.viacnezsperk.controller"/>
 
+    <mvc:view-controller path="/" view-name="home"/>
     <mvc:view-controller path="/home"/>
     <mvc:view-controller path="/login"/>
     <mvc:view-controller path="/home"/>
     <mvc:view-controller path="/denied"/>
+
+    <bean id="multipartResolver" class="org.gmr.web.multipart.GMultipartResolver">
+        <property name="maxUploadSize" value="104857666"/>
+    </bean>
 
     <bean id="tilesConfigurer"
           class="org.springframework.web.servlet.view.tiles2.TilesConfigurer"

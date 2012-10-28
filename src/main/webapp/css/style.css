@@ -1,7 +1,7 @@
 body {
     background: url("../images/main-bg.jpg") repeat-x fixed center top transparent;
     color: #474747;
-    font: 100%/1.125em Georgia,"Times New Roman",Times,serif;
+    font: 100%/1.125em Georgia, "Times New Roman", Times, serif;
     /*font-family: "Times New Roman", arial, sans-serif;*/
     /*font-size: 1.2em;*/
     /*font-family: verdana,helvetica,arial,sans-serif;*/
@@ -317,4 +317,9 @@ input, textarea {
     font-weight: bold;
     margin: 0;
     padding: 2px 9px;
+}
+
+.mainImg {
+    float: left;
+    margin: 0 20px 10px 0;
 }
