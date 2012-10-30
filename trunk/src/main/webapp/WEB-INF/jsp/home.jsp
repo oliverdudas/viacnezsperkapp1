@@ -1,5 +1,6 @@
 <%@ page import="sk.dudas.appengine.viacnezsperk.domain.User" %>
 <%@ page import="sk.dudas.appengine.viacnezsperk.util.MainUtil" %>
+<%@ page import="sk.dudas.appengine.viacnezsperk.domain.Role" %>
 <%@ include file="includes.jsp" %>
 
 <%
@@ -17,7 +18,7 @@
             <font size="3">
                 <br/>
                 <img src="<%=loggedUser.getMainURL()%>" alt="..." class="mainImg"/>
-                <%=loggedUser.getContent()%>
+                <%=loggedUser.getContent() != null ? loggedUser.getContent().getValue() : ""%>
             </font>
 
         </p>

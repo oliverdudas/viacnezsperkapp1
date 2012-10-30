@@ -8,6 +8,11 @@ body {
     /*font-family: verdana,helvetica,arial,sans-serif;*/
 
     position: relative;
+    height: 100%;
+}
+
+html {
+    height: 100%;
 }
 
 html, body, div, span, object, iframe, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, var, fieldset, form, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {
@@ -273,6 +278,10 @@ input, textarea {
     border-radius: 5px 5px 5px 5px;
 }
 
+input[type="submit"]:hover {
+    border: 1px solid #000;
+}
+
 /*PAGINATION*/
 .pagination {
     margin: 10px 0;
@@ -322,4 +331,13 @@ input, textarea {
 .mainImg {
     float: left;
     margin: 0 20px 10px 0;
+}
+
+.submitArea {
+    padding: 10px;
+}
+
+.form-error {
+    color: #FF0000;
+    padding-left: 5px;
 }

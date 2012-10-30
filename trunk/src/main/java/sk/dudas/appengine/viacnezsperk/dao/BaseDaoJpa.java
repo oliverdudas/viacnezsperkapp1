@@ -41,6 +41,11 @@ public abstract class BaseDaoJpa<K, E extends BaseEntity> extends JpaDaoSupport 
         getJpaTemplate().remove(entity);
     }
 
+    public void remove(long id) {
+        final E entity = findById(id);
+        getJpaTemplate().remove(entity);
+    }
+
     public <T extends BaseEntity> void removeEntity(T entity) {
         T attachedEntity = findEntityById(entity);
         getJpaTemplate().remove(attachedEntity);

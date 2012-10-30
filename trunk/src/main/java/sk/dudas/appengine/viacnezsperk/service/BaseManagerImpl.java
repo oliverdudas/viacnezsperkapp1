@@ -56,6 +56,10 @@ public abstract class BaseManagerImpl<K, E extends BaseEntity> implements BaseMa
         baseDao.remove(id);
     }
 
+    public void remove(long id) {
+        baseDao.remove(id);
+    }
+
     public <T extends BaseEntity> void removeEntity(T entity) {
         baseDao.removeEntity(entity);
     }

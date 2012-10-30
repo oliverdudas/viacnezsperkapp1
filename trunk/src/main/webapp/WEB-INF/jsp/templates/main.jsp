@@ -16,7 +16,11 @@
 
         <tiles:insertAttribute name="styles"/>
         <tiles:insertAttribute name="javascripts"/>
-        <%--<tiles:insertAttribute name="ga"/>--%>
+
+        <!-- Pulled from http://code.google.com/p/html5shiv/ -->
+        <!--[if lt IE 9]>
+        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
 
     </head>
 
