@@ -29,8 +29,9 @@
             </tr>
             <c:if test="${not empty param.login_error}">
                 <tr>
-                    <td colspan="2" id="loginErrorMessage">
-                        <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/>
+                    <td colspan="2" id="loginErrorMessage" class="form-error">
+                        <%--<c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/>--%>
+                        <fmt:message key="login.error"/>
                     </td>
                 </tr>
             </c:if>

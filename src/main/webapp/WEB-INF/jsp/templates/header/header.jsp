@@ -14,11 +14,6 @@
 
         <nav>
             <ul class="nav">
-                <security:authorize ifNotGranted="ROLE_ADMIN" ifAllGranted="ROLE_USER">
-                    <li>
-                        <a href="<c:url value="/home"/>"><fmt:message key="welcome"/></a>
-                    </li>
-                </security:authorize>
                 <security:authorize ifAnyGranted="ROLE_USER">
                     <li>
                         <a href="<c:url value="/logout"/>"><fmt:message key="logout"/></a>

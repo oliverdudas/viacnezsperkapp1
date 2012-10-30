@@ -1,5 +1,6 @@
 package sk.dudas.appengine.viacnezsperk.domain;
 
+import com.google.appengine.api.datastore.Text;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -31,7 +32,7 @@ public class User extends BaseEntity implements UserDetails {
     private Date modified;
     private String modifiedBy;
     private String mainURL;
-    private String content;
+    private Text content;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Role.class)
     private Collection<Role> roles;
@@ -163,11 +164,11 @@ public class User extends BaseEntity implements UserDetails {
         this.mainURL = mainURL;
     }
 
-    public String getContent() {
+    public Text getContent() {
         return content;
     }
 
-    public void setContent(String content) {
+    public void setContent(Text content) {
         this.content = content;
     }
 }

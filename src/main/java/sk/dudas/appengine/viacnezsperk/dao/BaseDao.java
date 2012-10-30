@@ -19,6 +19,8 @@ public interface BaseDao<K, E> {
 
     void remove(K id);
 
+    void remove(long id);
+
     <T extends BaseEntity> void removeEntity(T entity);
 
     <T extends BaseEntity, I> void removeEntity(Class<T> clazz, I id);

@@ -17,6 +17,7 @@ import sk.dudas.appengine.viacnezsperk.domain.User;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -51,6 +52,10 @@ public class CustomUserDetailService extends BaseManagerImpl<Key, User> implemen
 
     protected void addUser(String namePass, String... roleNames) {
         User user = new User();
+        user.setCreated(new Date());
+        user.setModified(new Date());
+        user.setCreatedBy("Application");
+        user.setModifiedBy("Application");
         PasswordEncoder encoder = new Md5PasswordEncoder();
         String hashedPass = encoder.encodePassword(namePass, null);
         user.setPassword(hashedPass);

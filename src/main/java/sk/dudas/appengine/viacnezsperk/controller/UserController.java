@@ -1,11 +1,9 @@
 package sk.dudas.appengine.viacnezsperk.controller;
 
-import com.google.appengine.api.datastore.Blob;
+import com.google.appengine.api.datastore.Text;
 import com.google.gdata.client.photos.PicasawebService;
 import com.google.gdata.data.MediaContent;
 import com.google.gdata.data.PlainTextConstruct;
-import com.google.gdata.data.media.MediaByteArraySource;
-import com.google.gdata.data.media.MediaFileSource;
 import com.google.gdata.data.media.MediaStreamSource;
 import com.google.gdata.data.photos.PhotoEntry;
 import com.google.gdata.util.AuthenticationException;
@@ -20,20 +18,22 @@ import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.support.DefaultMultipartHttpServletRequest;
+import sk.dudas.appengine.viacnezsperk.controller.bind.CustomTextBinder;
 import sk.dudas.appengine.viacnezsperk.controller.bind.CustomUserPasswordBinder;
+import sk.dudas.appengine.viacnezsperk.controller.validator.UserValidator;
 import sk.dudas.appengine.viacnezsperk.domain.Role;
 import sk.dudas.appengine.viacnezsperk.domain.User;
 import sk.dudas.appengine.viacnezsperk.service.UserManager;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -54,13 +54,18 @@ public class UserController {
     public static final String CHILD_COMMAND = "child";
     private static final String LIST_HOLDER = "listHolder";
     private static final String HOLDER = "holder";
+    public static final String ADMIN_CHILD_DELETE = "/admin/delete";
 
     @Autowired
     private UserManager userManager;
 
+    @Autowired
+    private UserValidator userValidator;
+
     @InitBinder(value = UserController.CHILD_COMMAND)
     public void initBinder(WebDataBinder binder) {
         binder.registerCustomEditor(String.class, "password", new CustomUserPasswordBinder());
+        binder.registerCustomEditor(Text.class, new CustomTextBinder());
     }
 
     @RequestMapping(value = ADMIN_CHILDREN_VIEW, method = RequestMethod.GET)
@@ -72,7 +77,7 @@ public class UserController {
             List<User> all = userManager.findAll();
             pagedListHolder = new PagedListHolder(all);
             request.getSession().setAttribute(LIST_HOLDER, pagedListHolder);
-            int pageSize = 4;
+            int pageSize = 10;
             pagedListHolder.setPageSize(pageSize);
         }
         pagedListHolder.setPage(p);
@@ -97,13 +102,29 @@ public class UserController {
         modelMap.addAttribute(CHILD_COMMAND, child);
     }
 
+    @RequestMapping(value = ADMIN_CHILD_FORM_VIEW, method = RequestMethod.POST, params = "delete")
+    public String delete(@ModelAttribute(value = CHILD_COMMAND) User child, HttpServletRequest request) {
+        if (child.getKey() != null) {
+            userManager.remove(child.getKey());
+            refreshHolder(request);
+        }
+        return "redirect:" + ADMIN_CHILDREN_VIEW;
+    }
+
     @RequestMapping(value = ADMIN_CHILD_FORM_VIEW, method = RequestMethod.POST, params = "childFormSubmit")
-    public String form(@ModelAttribute(value = CHILD_COMMAND) User child, BindingResult bindingResult, SessionStatus sessionStatus) {
+    public String form(HttpServletRequest request,
+                       @ModelAttribute(value = CHILD_COMMAND) User child,
+                       BindingResult bindingResult,
+                       SessionStatus sessionStatus) {
+
+        userValidator.validate(child, bindingResult);
         if (bindingResult.hasErrors()) {
             return ADMIN_CHILD_FORM_VIEW;
         } else {
             addDefaultRole(child);
             userManager.persistOrMergeUser(child);
+            refreshHolder(request);
+            sessionStatus.setComplete();
             return "redirect:" + ADMIN_CHILDREN_VIEW;
         }
     }
@@ -114,8 +135,14 @@ public class UserController {
         child.setRoles(roles);
     }
 
-    @RequestMapping(value = ADMIN_CHILD_FORM_VIEW, method = RequestMethod.POST, params = "uploadImage")
-    public void upload(@ModelAttribute(value = CHILD_COMMAND) User child, HttpServletRequest request) throws ServiceException, IOException {
+    private void refreshHolder(HttpServletRequest request) {
+        request.getSession().removeAttribute(LIST_HOLDER);
+    }
+
+    @RequestMapping(value = "/admin/uploadTest")
+    public
+    @ResponseBody
+    String uploadTest(@ModelAttribute(value = CHILD_COMMAND) User child, HttpServletRequest request) throws IOException, ServiceException {
         GMultipartFile file = (GMultipartFile) ((DefaultMultipartHttpServletRequest) request).getFileMap().get("file");
 
         String userId = "104004273393078620402"; //oliver.dudas@viacnezsperk.sk
@@ -140,6 +167,8 @@ public class UserController {
 
         String photoUri = ((MediaContent) returnedPhoto.getContent()).getUri();
         child.setMainURL(photoUri);
+
+        return photoUri;
     }
 
     @RequestMapping(value = ADMIN_CHILD_FORM_VIEW, method = RequestMethod.POST, params = "cancel")

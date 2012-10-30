@@ -63,9 +63,16 @@
                         </th>
                         <th>
                             <a href="<c:url value="${pageView}">
-                                        <c:param name="sort.property" value="age"/>
+                                        <c:param name="sort.property" value="modified"/>
                                      </c:url>">
-                                <fmt:message key="age"/>
+                                <fmt:message key="modified"/>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="<c:url value="${pageView}">
+                                        <c:param name="sort.property" value="created"/>
+                                     </c:url>">
+                                <fmt:message key="created"/>
                             </a>
                         </th>
                     </tr>
@@ -83,8 +90,11 @@
                             <td class="td">
                                 <div>${child.lastname}</div>
                             </td>
+                            <td class="td">
+                                <div><fmt:formatDate value="${child.modified}" pattern="dd.MM.yyyy HH:mm"/></div>
+                            </td>
                             <td class="lasttd">
-                                <div>${child.age}</div>
+                                <div><fmt:formatDate value="${child.created}" pattern="dd.MM.yyyy HH:mm"/></div>
                             </td>
                         </tr>
                     </c:forEach>
