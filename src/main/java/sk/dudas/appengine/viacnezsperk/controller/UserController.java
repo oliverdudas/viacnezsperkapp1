@@ -1,5 +1,6 @@
 package sk.dudas.appengine.viacnezsperk.controller;
 
+import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.Text;
 import com.google.gdata.client.photos.PicasawebService;
 import com.google.gdata.data.MediaContent;
@@ -119,20 +120,13 @@ public class UserController {
 
         userValidator.validate(child, bindingResult);
         if (bindingResult.hasErrors()) {
-            return ADMIN_CHILD_FORM_VIEW;
+            return "admin/childForm";
         } else {
-            addDefaultRole(child);
             userManager.persistOrMergeUser(child);
             refreshHolder(request);
             sessionStatus.setComplete();
             return "redirect:" + ADMIN_CHILDREN_VIEW;
         }
-    }
-
-    private void addDefaultRole(User child) {
-        ArrayList<Role> roles = new ArrayList<Role>();
-        roles.add(new Role(Role.ROLE_USER));
-        child.setRoles(roles);
     }
 
     private void refreshHolder(HttpServletRequest request) {

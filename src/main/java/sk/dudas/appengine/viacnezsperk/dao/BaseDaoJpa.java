@@ -1,5 +1,6 @@
 package sk.dudas.appengine.viacnezsperk.dao;
 
+import com.google.appengine.api.datastore.KeyFactory;
 import org.springframework.orm.jpa.JpaCallback;
 import org.springframework.orm.jpa.support.JpaDaoSupport;
 import sk.dudas.appengine.viacnezsperk.domain.BaseEntity;
