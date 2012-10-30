@@ -72,10 +72,10 @@ public class CustomUserDetailService extends BaseManagerImpl<Key, User> implemen
         List<User> all = userManager.findAll();
         if (all == null || all.size() == 0) {
             addUser(ADMIN, Role.ROLE_ADMIN, Role.ROLE_USER);
-            addUser("fero", Role.ROLE_USER);
-            addUser("jozo", Role.ROLE_USER);
-            addUser("dezi", Role.ROLE_USER);
-            addUser("pepi", Role.ROLE_USER);
+//            addUser("fero", Role.ROLE_USER);
+//            addUser("jozo", Role.ROLE_USER);
+//            addUser("dezi", Role.ROLE_USER);
+//            addUser("pepi", Role.ROLE_USER);
         }
     }
 }

@@ -7,10 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import sk.dudas.appengine.viacnezsperk.dao.UserDao;
+import sk.dudas.appengine.viacnezsperk.domain.Role;
 import sk.dudas.appengine.viacnezsperk.domain.User;
 import sk.dudas.appengine.viacnezsperk.util.MainUtil;
 
 import javax.annotation.PostConstruct;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -41,12 +43,19 @@ public class UserManagerImpl extends BaseManagerImpl<Key, User> implements UserM
             user.setCreatedBy(fullname);
             user.setModified(date);
             user.setModifiedBy(fullname);
+            addDefaultRole(user);
             persist(user);
         } else {
             user.setModified(date);
             user.setModifiedBy(fullname);
             merge(user);
         }
+    }
+
+    private void addDefaultRole(User child) {
+        ArrayList<Role> roles = new ArrayList<Role>();
+        roles.add(new Role(Role.ROLE_USER));
+        child.setRoles(roles);
     }
 
 }
