@@ -94,11 +94,11 @@ public class User extends BaseEntity implements UserDetails {
         return false;
     }
 
-    public boolean hasAdminRole() {
+    public boolean isAdmin() {
         return this.hasRole(Role.ROLE_ADMIN);
     }
 
-    public boolean hasUserRole() {
+    public boolean isUser() {
         return this.hasRole(Role.ROLE_USER);
     }
 
