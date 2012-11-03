@@ -35,7 +35,7 @@ public class HomeController {
         boolean showCloseHeaderType = false;
         User loggedUser = MainUtil.getLoggedUser();
         User user;
-        if (loggedUser.hasAdminRole()) {
+        if (loggedUser.isAdmin()) {
             if (id != 0) {
                 user = userManager.findById(id);
                 showCloseHeaderType = true;

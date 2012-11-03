@@ -18,7 +18,7 @@
             window.location = '${childFormUrl}?id=' + id;
         });
 
-        $('.insightClass').click(function(e) {
+        $('.insightClass').click(function (e) {
 //            e.preventDefault();
             e.stopPropagation();
         });
@@ -88,26 +88,30 @@
                     <tbody>
                     <%--@elvariable id="child" type="sk.dudas.appengine.viacnezsperk.domain.User"--%>
                     <c:forEach items="${holder.pageList}" var="child">
-                        <tr id="${child.key.id}">
-                            <td class="firsttd">
-                                <div>${child.username}</div>
-                            </td>
-                            <td class="td">
-                                <div>${child.firstname}</div>
-                            </td>
-                            <td class="td">
-                                <div>${child.lastname}</div>
-                            </td>
-                            <td class="td">
-                                <div><fmt:formatDate value="${child.modified}" pattern="dd.MM.yyyy HH:mm"/></div>
-                            </td>
-                            <td class="td">
-                                <div><fmt:formatDate value="${child.created}" pattern="dd.MM.yyyy HH:mm"/></div>
-                            </td>
-                            <td class="lasttd">
-                                <div><a target="_blank" class="insightClass" href="<c:url value="/home?id=${child.key.id}"/>"><fmt:message key="insight"/></a></div>
-                            </td>
-                        </tr>
+                        <c:if test="${!child.admin}">
+                            <tr id="${child.key.id}">
+                                <td class="firsttd">
+                                    <div>${child.username}</div>
+                                </td>
+                                <td class="td">
+                                    <div>${child.firstname}</div>
+                                </td>
+                                <td class="td">
+                                    <div>${child.lastname}</div>
+                                </td>
+                                <td class="td">
+                                    <div><fmt:formatDate value="${child.modified}" pattern="dd.MM.yyyy HH:mm"/></div>
+                                </td>
+                                <td class="td">
+                                    <div><fmt:formatDate value="${child.created}" pattern="dd.MM.yyyy HH:mm"/></div>
+                                </td>
+                                <td class="lasttd">
+                                    <div><a target="_blank" class="insightClass"
+                                            href="<c:url value="/home?id=${child.key.id}"/>"><fmt:message
+                                            key="insight"/></a></div>
+                                </td>
+                            </tr>
+                        </c:if>
                     </c:forEach>
                     </tbody>
                 </table>

@@ -7,23 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="f175d8da-0af5-4ce7-aeb8-67abad0c79b8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/controller/HomeController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/controller/UserController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/controller/HomeController.java" afterPath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/controller/HomeController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/domain/User.java" afterPath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/domain/User.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/security/UserAdminAuthenticationSuccessHandler.java" afterPath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/security/UserAdminAuthenticationSuccessHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/CustomUserDetailService.java" afterPath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/CustomUserDetailService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/UserManager.java" afterPath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/UserManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/UserManagerImpl.java" afterPath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/UserManagerImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/spring/applicationContext-security.xml" afterPath="$PROJECT_DIR$/src/main/resources/spring/applicationContext-security.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/spring/spring-servlet.xml" afterPath="$PROJECT_DIR$/src/main/resources/spring/spring-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/appengine-web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/appengine-web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/childForm.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/childForm.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/children.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/children.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/home.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/home.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/templates/header/header.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/templates/header/header.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/css/style.css" afterPath="$PROJECT_DIR$/src/main/webapp/css/style.css" />
     </list>
     <ignored path="viacnezsperkapp1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -107,10 +95,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="children.jsp" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="children.jsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/children.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="75" selection-start="4707" selection-end="4719" vertical-scroll-proportion="-9.153846">
+            <state line="85" column="83" selection-start="3510" selection-end="3510" vertical-scroll-proportion="0.093333334">
               <folding />
             </state>
           </provider>
@@ -134,10 +122,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="348" column="20" selection-start="5877" selection-end="5877" vertical-scroll-proportion="0.48192772">
+            <state line="333" column="35" selection-start="5712" selection-end="5712" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -146,7 +134,16 @@
       <file leaf-file-name="home.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/home.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="0" selection-start="407" selection-end="407" vertical-scroll-proportion="-10.461538">
+            <state line="11" column="66" selection-start="255" selection-end="255" vertical-scroll-proportion="-7.1923075">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/domain/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="100" column="25" selection-start="2390" selection-end="2390" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -155,7 +152,7 @@
       <file leaf-file-name="HomeController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/controller/HomeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="71" selection-start="1563" selection-end="1563" vertical-scroll-proportion="0.0">
+            <state line="42" column="71" selection-start="1558" selection-end="1558" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -188,14 +185,14 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/childForm.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/spring-servlet.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/domain/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/security/UserAdminAuthenticationSuccessHandler.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/home.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/children.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/templates/header/header.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/messages.properties" />
         <option value="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/controller/HomeController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/css/style.css" />
+        <option value="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/domain/User.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/children.jsp" />
       </list>
     </option>
   </component>
@@ -243,10 +240,10 @@
     <option name="jreName" value="#JAVA_INTERNAL" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="840" />
-    <option name="y" value="30" />
-    <option name="width" value="840" />
-    <option name="height" value="1020" />
+    <option name="x" value="-8" />
+    <option name="y" value="22" />
+    <option name="width" value="1696" />
+    <option name="height" value="1036" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -1093,7 +1090,11 @@
       <created>1351637941105</created>
       <updated>1351637941105</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="- opravene strankovanie (gae session issue)&#10;- generovanie hesla (4 miestny pin), heslo nie je cryptovane&#10;- confirm okno pri mazani zaznamu&#10;- funkcne zoradovanie, zoznam deti je defaultne zoradeny podla stlpca Upravene&#10;- nahlad obrazovky dietata&#10;- redirect admina z /home na /admin/children">
+      <created>1351978923118</created>
+      <updated>1351978923118</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1117,7 +1118,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="840" y="30" width="840" height="1020" extended-state="0" />
+    <frame x="-8" y="22" width="1696" height="1036" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1126,16 +1127,16 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.249694" sideWeight="0.45091325" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30697674" sideWeight="0.9302326" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48401827" sideWeight="0.9302326" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7146119" sideWeight="0.50550795" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45547944" sideWeight="0.497552" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4543379" sideWeight="0.497552" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32990867" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20440637" sideWeight="0.739726" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39203084" sideWeight="0.69302326" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1866585" sideWeight="0.51598173" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44292238" sideWeight="0.4902081" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1182,7 +1183,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="- verzia" />
+    <option name="LAST_COMMIT_MESSAGE" value="- opravene strankovanie (gae session issue)&#10;- generovanie hesla (4 miestny pin), heslo nie je cryptovane&#10;- confirm okno pri mazani zaznamu&#10;- funkcne zoradovanie, zoznam deti je defaultne zoradeny podla stlpca Upravene&#10;- nahlad obrazovky dietata&#10;- redirect admina z /home na /admin/children" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1209,6 +1210,7 @@
     <MESSAGE value="- version 8" />
     <MESSAGE value="- uploader&#10;- validacie" />
     <MESSAGE value="- verzia" />
+    <MESSAGE value="- opravene strankovanie (gae session issue)&#10;- generovanie hesla (4 miestny pin), heslo nie je cryptovane&#10;- confirm okno pri mazani zaznamu&#10;- funkcne zoradovanie, zoznam deti je defaultne zoradeny podla stlpca Upravene&#10;- nahlad obrazovky dietata&#10;- redirect admina z /home na /admin/children" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1235,13 +1237,6 @@
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/3.1.2.RELEASE/spring-beans-3.1.2.RELEASE-sources.jar!/org/springframework/beans/support/PagedListHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="139" column="22" selection-start="4047" selection-end="4047" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/domain/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="22" selection-start="1967" selection-end="1967" vertical-scroll-proportion="0.5318893">
           <folding />
         </state>
       </provider>
@@ -1301,13 +1296,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/home.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="407" selection-end="407" vertical-scroll-proportion="-10.461538">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="47" column="50" selection-start="2071" selection-end="2090" vertical-scroll-proportion="0.0">
@@ -1317,21 +1305,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/controller/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="71" selection-start="1563" selection-end="1563" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/children.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="75" selection-start="4707" selection-end="4719" vertical-scroll-proportion="-9.153846">
+        <state line="42" column="71" selection-start="1558" selection-end="1558" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="348" column="20" selection-start="5877" selection-end="5877" vertical-scroll-proportion="0.48192772">
+        <state line="333" column="35" selection-start="5712" selection-end="5712" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/domain/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="25" selection-start="2390" selection-end="2390" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/home.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="66" selection-start="255" selection-end="255" vertical-scroll-proportion="-7.1923075">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/children.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="83" selection-start="3510" selection-end="3510" vertical-scroll-proportion="0.093333334">
           <folding />
         </state>
       </provider>
