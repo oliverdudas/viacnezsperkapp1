@@ -75,7 +75,9 @@ public class UserController {
             request.getSession().setAttribute(LIST_HOLDER, pagedListHolder);
             int pageSize = 25;
             pagedListHolder.setPageSize(pageSize);
-            ((MutableSortDefinition) pagedListHolder.getSort()).setProperty(MODIFIED);
+            MutableSortDefinition sort = (MutableSortDefinition) pagedListHolder.getSort();
+            sort.setProperty(MODIFIED);
+            sort.setAscending(false);
         }
         pagedListHolder.setPage(p);
         modelMap.addAttribute(HOLDER, pagedListHolder);
