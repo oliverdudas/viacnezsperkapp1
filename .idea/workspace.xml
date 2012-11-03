@@ -8,10 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="f175d8da-0af5-4ce7-aeb8-67abad0c79b8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/controller/HomeController.java" afterPath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/controller/HomeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/domain/User.java" afterPath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/domain/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/security/UserAdminAuthenticationSuccessHandler.java" afterPath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/security/UserAdminAuthenticationSuccessHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/children.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/children.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/appengine-web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/appengine-web.xml" />
     </list>
     <ignored path="viacnezsperkapp1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -95,10 +92,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="children.jsp" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="children.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/children.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="83" selection-start="3510" selection-end="3510" vertical-scroll-proportion="0.093333334">
+            <state line="88" column="55" selection-start="3623" selection-end="3623" vertical-scroll-proportion="-4.923077">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="appengine-web.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/appengine-web.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="60" selection-start="210" selection-end="210" vertical-scroll-proportion="0.09988249">
               <folding />
             </state>
           </provider>
@@ -178,7 +184,6 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/UserManager.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/appengine-web.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/applicationContext-security.xml" />
         <option value="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/CustomUserDetailService.java" />
         <option value="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/controller/bind/CustomUserPasswordBinder.java" />
@@ -193,6 +198,7 @@
         <option value="$PROJECT_DIR$/src/main/webapp/css/style.css" />
         <option value="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/domain/User.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/children.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/appengine-web.xml" />
       </list>
     </option>
   </component>
@@ -1094,7 +1100,11 @@
       <created>1351978923118</created>
       <updated>1351978923118</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="- zrusenie admina zo zoznamu deti">
+      <created>1351979428105</created>
+      <updated>1351979428105</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1183,7 +1193,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="- opravene strankovanie (gae session issue)&#10;- generovanie hesla (4 miestny pin), heslo nie je cryptovane&#10;- confirm okno pri mazani zaznamu&#10;- funkcne zoradovanie, zoznam deti je defaultne zoradeny podla stlpca Upravene&#10;- nahlad obrazovky dietata&#10;- redirect admina z /home na /admin/children" />
+    <option name="LAST_COMMIT_MESSAGE" value="- zrusenie admina zo zoznamu deti" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1211,6 +1221,7 @@
     <MESSAGE value="- uploader&#10;- validacie" />
     <MESSAGE value="- verzia" />
     <MESSAGE value="- opravene strankovanie (gae session issue)&#10;- generovanie hesla (4 miestny pin), heslo nie je cryptovane&#10;- confirm okno pri mazani zaznamu&#10;- funkcne zoradovanie, zoznam deti je defaultne zoradeny podla stlpca Upravene&#10;- nahlad obrazovky dietata&#10;- redirect admina z /home na /admin/children" />
+    <MESSAGE value="- zrusenie admina zo zoznamu deti" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1220,13 +1231,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/3.1.2.RELEASE/spring-beans-3.1.2.RELEASE-sources.jar!/org/springframework/beans/support/SortDefinition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="17" selection-start="801" selection-end="801" vertical-scroll-proportion="0.25073746">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/3.1.2.RELEASE/spring-beans-3.1.2.RELEASE-sources.jar!/org/springframework/beans/support/MutableSortDefinition.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="34" selection-start="1026" selection-end="1047" vertical-scroll-proportion="0.33333334">
@@ -1333,7 +1337,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/children.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="83" selection-start="3510" selection-end="3510" vertical-scroll-proportion="0.093333334">
+        <state line="88" column="55" selection-start="3623" selection-end="3623" vertical-scroll-proportion="-4.923077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/appengine-web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="60" selection-start="210" selection-end="210" vertical-scroll-proportion="0.09988249">
           <folding />
         </state>
       </provider>
