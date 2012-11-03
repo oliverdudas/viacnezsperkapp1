@@ -3,6 +3,8 @@ package sk.dudas.appengine.viacnezsperk.service;
 import com.google.appengine.api.datastore.Key;
 import sk.dudas.appengine.viacnezsperk.domain.User;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: oli
@@ -13,4 +15,6 @@ import sk.dudas.appengine.viacnezsperk.domain.User;
 public interface UserManager extends BaseManager<Key, User> {
 
     void persistOrMergeUser(User user);
+
+    List<User> findAllUnattachedUsers();
 }

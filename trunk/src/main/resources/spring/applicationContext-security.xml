@@ -27,7 +27,7 @@
 
     <authentication-manager alias="authenticationManager">
         <authentication-provider user-service-ref="customUserDetailService">
-            <password-encoder hash="md5"/>
+            <!--<password-encoder hash="md5"/>-->
         </authentication-provider>
     </authentication-manager>
 

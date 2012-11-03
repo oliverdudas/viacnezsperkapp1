@@ -27,9 +27,9 @@ public class UserAdminAuthenticationSuccessHandler implements AuthenticationSucc
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         if (authentication.getPrincipal() instanceof UserDetails) {
             User user = (User) authentication.getPrincipal();
-            if (user.hasRole(Role.ROLE_ADMIN)) {
+            if (user.hasAdminRole()) {
                 response.sendRedirect(request.getContextPath() + roleUrlMap.get(Role.ROLE_ADMIN));
-            } else if (user.hasRole(Role.ROLE_USER)) {
+            } else if (user.hasUserRole()) {
                 response.sendRedirect(request.getContextPath() + roleUrlMap.get(Role.ROLE_USER));
             }
         }

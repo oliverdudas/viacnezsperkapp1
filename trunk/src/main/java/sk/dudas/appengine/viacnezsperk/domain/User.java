@@ -94,6 +94,14 @@ public class User extends BaseEntity implements UserDetails {
         return false;
     }
 
+    public boolean hasAdminRole() {
+        return this.hasRole(Role.ROLE_ADMIN);
+    }
+
+    public boolean hasUserRole() {
+        return this.hasRole(Role.ROLE_USER);
+    }
+
     public String getFullname() {
         String firstname = getFirstname() != null ? getFirstname() : Constants.EMPTY;
         String lastname = getLastname() != null ? getLastname() : Constants.EMPTY;
