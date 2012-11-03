@@ -73,7 +73,7 @@ public class UserController {
             List<User> all = userManager.findAllUnattachedUsers();
             pagedListHolder = new PagedListHolder(all);
             request.getSession().setAttribute(LIST_HOLDER, pagedListHolder);
-            int pageSize = 10;
+            int pageSize = 25;
             pagedListHolder.setPageSize(pageSize);
             ((MutableSortDefinition) pagedListHolder.getSort()).setProperty(MODIFIED);
         }
