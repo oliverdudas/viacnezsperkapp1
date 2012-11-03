@@ -56,9 +56,10 @@ public class CustomUserDetailService extends BaseManagerImpl<Key, User> implemen
         user.setModified(new Date());
         user.setCreatedBy("Application");
         user.setModifiedBy("Application");
-        PasswordEncoder encoder = new Md5PasswordEncoder();
-        String hashedPass = encoder.encodePassword(namePass, null);
-        user.setPassword(hashedPass);
+//        PasswordEncoder encoder = new Md5PasswordEncoder();
+//        String hashedPass = encoder.encodePassword(namePass, null);
+//        user.setPassword(hashedPass);
+        user.setPassword(namePass);
         user.setUsername(namePass);
         ArrayList<Role> roles = new ArrayList<Role>();
         for (String roleName : roleNames) {

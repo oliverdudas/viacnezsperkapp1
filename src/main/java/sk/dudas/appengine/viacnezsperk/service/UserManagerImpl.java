@@ -14,6 +14,7 @@ import sk.dudas.appengine.viacnezsperk.util.MainUtil;
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -56,6 +57,16 @@ public class UserManagerImpl extends BaseManagerImpl<Key, User> implements UserM
         ArrayList<Role> roles = new ArrayList<Role>();
         roles.add(new Role(Role.ROLE_USER));
         child.setRoles(roles);
+    }
+
+    /**
+     * This creation of new list is required beacause of directly returned unserializable list from datastore.
+     * The returned list is NOT SERIALIZABLE, thus, we cannot put the returned list to the appengine's session.
+     * To make the returned list serializable, we have to create new one.
+     * @return
+     */
+    public List<User> findAllUnattachedUsers() {
+        return new ArrayList<User>(findAll());
     }
 
 }

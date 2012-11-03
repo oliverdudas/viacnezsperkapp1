@@ -17,6 +17,11 @@
             var id = $(this).attr('id');
             window.location = '${childFormUrl}?id=' + id;
         });
+
+        $('.insightClass').click(function(e) {
+//            e.preventDefault();
+            e.stopPropagation();
+        });
     });
 </script>
 
@@ -63,7 +68,7 @@
                         </th>
                         <th>
                             <a href="<c:url value="${pageView}">
-                                        <c:param name="sort.property" value="modified"/>
+                                        <c:param name="sort.property" value="<%=UserController.MODIFIED%>"/>
                                      </c:url>">
                                 <fmt:message key="modified"/>
                             </a>
@@ -74,6 +79,9 @@
                                      </c:url>">
                                 <fmt:message key="created"/>
                             </a>
+                        </th>
+                        <th>
+                            <span><fmt:message key="insight"/></span>
                         </th>
                     </tr>
                     </thead>
@@ -93,8 +101,11 @@
                             <td class="td">
                                 <div><fmt:formatDate value="${child.modified}" pattern="dd.MM.yyyy HH:mm"/></div>
                             </td>
-                            <td class="lasttd">
+                            <td class="td">
                                 <div><fmt:formatDate value="${child.created}" pattern="dd.MM.yyyy HH:mm"/></div>
+                            </td>
+                            <td class="lasttd">
+                                <div><a target="_blank" class="insightClass" href="<c:url value="/home?id=${child.key.id}"/>"><fmt:message key="insight"/></a></div>
                             </td>
                         </tr>
                     </c:forEach>

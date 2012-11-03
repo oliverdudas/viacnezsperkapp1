@@ -1,26 +1,19 @@
-<%@ page import="sk.dudas.appengine.viacnezsperk.domain.User" %>
-<%@ page import="sk.dudas.appengine.viacnezsperk.util.MainUtil" %>
-<%@ page import="sk.dudas.appengine.viacnezsperk.domain.Role" %>
+<%--@elvariable id="user" type="sk.dudas.appengine.viacnezsperk.domain.User"--%>
 <%@ include file="includes.jsp" %>
-
-<%
-    User loggedUser = MainUtil.getLoggedUser();
-%>
 
 <div class="contentWrapper">
 
     <h1 class="title">
-        <%=loggedUser.getFullname()%>
+        ${user.fullname}
     </h1>
 
     <div>
         <p>
             <font size="3">
                 <br/>
-                <img src="<%=loggedUser.getMainURL()%>" alt="..." class="mainImg"/>
-                <%=loggedUser.getContent() != null ? loggedUser.getContent().getValue() : ""%>
+                <img src="${user.mainURL}" alt="..." class="mainImg"/>
+                ${user.content.value}
             </font>
-
         </p>
     </div>
 

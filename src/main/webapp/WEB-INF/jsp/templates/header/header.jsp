@@ -14,11 +14,22 @@
 
         <nav>
             <ul class="nav">
-                <security:authorize ifAnyGranted="ROLE_USER">
-                    <li>
-                        <a href="<c:url value="/logout"/>"><fmt:message key="logout"/></a>
-                    </li>
-                </security:authorize>
+                <c:choose>
+                    <c:when test="${showCloseHeaderType}">
+                        <security:authorize ifAnyGranted="ROLE_ADMIN">
+                            <li class="close-window">
+                                <a href="javascript: window.close();"><fmt:message key="close.insight"/></a>
+                            </li>
+                        </security:authorize>
+                    </c:when>
+                    <c:otherwise>
+                        <security:authorize ifAnyGranted="ROLE_USER">
+                            <li>
+                                <a href="<c:url value="/logout"/>"><fmt:message key="logout"/></a>
+                            </li>
+                        </security:authorize>
+                    </c:otherwise>
+                </c:choose>
             </ul>
         </nav>
 

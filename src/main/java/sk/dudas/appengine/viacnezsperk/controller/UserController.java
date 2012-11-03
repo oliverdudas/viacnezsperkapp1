@@ -1,16 +1,15 @@
 package sk.dudas.appengine.viacnezsperk.controller;
 
-import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.Text;
 import com.google.gdata.client.photos.PicasawebService;
 import com.google.gdata.data.MediaContent;
 import com.google.gdata.data.PlainTextConstruct;
 import com.google.gdata.data.media.MediaStreamSource;
 import com.google.gdata.data.photos.PhotoEntry;
-import com.google.gdata.util.AuthenticationException;
 import com.google.gdata.util.ServiceException;
 import org.gmr.web.multipart.GMultipartFile;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -23,18 +22,13 @@ import org.springframework.web.multipart.support.DefaultMultipartHttpServletRequ
 import sk.dudas.appengine.viacnezsperk.controller.bind.CustomTextBinder;
 import sk.dudas.appengine.viacnezsperk.controller.bind.CustomUserPasswordBinder;
 import sk.dudas.appengine.viacnezsperk.controller.validator.UserValidator;
-import sk.dudas.appengine.viacnezsperk.domain.Role;
 import sk.dudas.appengine.viacnezsperk.domain.User;
 import sk.dudas.appengine.viacnezsperk.service.UserManager;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -56,6 +50,7 @@ public class UserController {
     private static final String LIST_HOLDER = "listHolder";
     private static final String HOLDER = "holder";
     public static final String ADMIN_CHILD_DELETE = "/admin/delete";
+    public static final String MODIFIED = "modified";
 
     @Autowired
     private UserManager userManager;
@@ -65,7 +60,7 @@ public class UserController {
 
     @InitBinder(value = UserController.CHILD_COMMAND)
     public void initBinder(WebDataBinder binder) {
-        binder.registerCustomEditor(String.class, "password", new CustomUserPasswordBinder());
+//        binder.registerCustomEditor(String.class, "password", new CustomUserPasswordBinder());
         binder.registerCustomEditor(Text.class, new CustomTextBinder());
     }
 
@@ -75,11 +70,12 @@ public class UserController {
 
         PagedListHolder pagedListHolder = (PagedListHolder) request.getSession().getAttribute(LIST_HOLDER);
         if (pagedListHolder == null) {
-            List<User> all = userManager.findAll();
+            List<User> all = userManager.findAllUnattachedUsers();
             pagedListHolder = new PagedListHolder(all);
             request.getSession().setAttribute(LIST_HOLDER, pagedListHolder);
             int pageSize = 10;
             pagedListHolder.setPageSize(pageSize);
+            ((MutableSortDefinition) pagedListHolder.getSort()).setProperty(MODIFIED);
         }
         pagedListHolder.setPage(p);
         modelMap.addAttribute(HOLDER, pagedListHolder);
