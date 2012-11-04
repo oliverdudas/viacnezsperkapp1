@@ -51,6 +51,7 @@ public class UserController {
     private static final String HOLDER = "holder";
     public static final String ADMIN_CHILD_DELETE = "/admin/delete";
     public static final String MODIFIED = "modified";
+    public static final String SEARCH_VALUE = "searchValue";
 
     @Autowired
     private UserManager userManager;
@@ -64,15 +65,24 @@ public class UserController {
         binder.registerCustomEditor(Text.class, new CustomTextBinder());
     }
 
+    @RequestMapping(value = ADMIN_CHILDREN_VIEW, method = RequestMethod.POST)
+    public String search(HttpServletRequest request, @RequestParam(defaultValue = "") String searchValue) {
+        request.getSession().setAttribute(SEARCH_VALUE, searchValue);
+        List<User> users = userManager.getUsers(searchValue);
+        PagedListHolder<User> holder = getHolder(request);
+        holder.setSource(users);
+        return "redirect:" + ADMIN_CHILDREN_VIEW;
+    }
+
     @RequestMapping(value = ADMIN_CHILDREN_VIEW, method = RequestMethod.GET)
     public void list(HttpServletRequest request, ModelMap modelMap, @RequestParam(defaultValue = "0") int p) {
         logger.log(Level.INFO, "Zoznam deti");
 
-        PagedListHolder pagedListHolder = (PagedListHolder) request.getSession().getAttribute(LIST_HOLDER);
+        PagedListHolder<User> pagedListHolder = getHolder(request);
         if (pagedListHolder == null) {
             List<User> all = userManager.findAllUnattachedUsers();
-            pagedListHolder = new PagedListHolder(all);
-            request.getSession().setAttribute(LIST_HOLDER, pagedListHolder);
+            pagedListHolder = new PagedListHolder<User>(all);
+            setHolder(request, pagedListHolder);
             int pageSize = 25;
             pagedListHolder.setPageSize(pageSize);
             MutableSortDefinition sort = (MutableSortDefinition) pagedListHolder.getSort();
@@ -86,6 +96,14 @@ public class UserController {
         binder.bind(request);
 
         pagedListHolder.resort();
+    }
+
+    private PagedListHolder<User> getHolder(HttpServletRequest request) {
+        return (PagedListHolder<User>) request.getSession().getAttribute(LIST_HOLDER);
+    }
+
+    private void setHolder(HttpServletRequest request, PagedListHolder<User> pagedListHolder) {
+        request.getSession().setAttribute(LIST_HOLDER, pagedListHolder);
     }
 
     @RequestMapping(value = ADMIN_CHILD_FORM_VIEW, method = RequestMethod.GET)

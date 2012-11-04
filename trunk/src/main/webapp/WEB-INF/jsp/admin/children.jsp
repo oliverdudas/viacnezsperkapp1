@@ -19,9 +19,12 @@
         });
 
         $('.insightClass').click(function (e) {
-//            e.preventDefault();
             e.stopPropagation();
         });
+
+        var search = $('#searchId');
+        search.get(0).focus();
+        search.get(0).select();
     });
 </script>
 
@@ -37,6 +40,15 @@
 
         <%--@elvariable id="holder" type="org.springframework.beans.support.PagedListHolder>"--%>
         <div class="tableWrapper">
+            <c:set var="searchWatermark"><fmt:message key="login.name.short"/>, <fmt:message key="name"/>, <fmt:message
+                    key="lastname"/></c:set>
+            <div style="font-size: 0.7em;color: #969696;">(${searchWatermark})</div>
+            <div>
+                <form action="<c:url value="${pageView}"/>" method="post">
+                    <input name="searchValue" type="text" id="searchId" value="${sessionScope.searchValue}">
+                    <input type="submit" name="searchSubmit" value="<fmt:message key="search"/>">
+                </form>
+            </div>
 
             <%-- // load our paging tag, pass pagedListHolder and the link --%>
             <tg:paging pagedListHolder="${holder}" pagedLink="${pagedURL}"/>
