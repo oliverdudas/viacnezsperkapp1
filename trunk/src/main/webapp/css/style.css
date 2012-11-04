@@ -328,6 +328,12 @@ input[type="submit"]:hover, input[type="button"]:hover {
     padding: 2px 9px;
 }
 
+.pagination .info {
+    float: right;
+    padding-right: 5px;
+    color: #969696;
+}
+
 .mainImg {
     float: left;
     margin: 0 20px 10px 0;
