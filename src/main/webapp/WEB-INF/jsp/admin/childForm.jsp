@@ -51,7 +51,7 @@
             <table class="formTable">
                 <tr>
                     <td class="label" title="<fmt:message key="required"/>"><fmt:message key="login.name"/>*:</td>
-                    <td class="value"><form:input path="username"/><form:errors cssClass="form-error"
+                    <td class="value"><form:input id="usernameId" path="username"/><form:errors cssClass="form-error"
                                                                                 path="username"/></td>
                 </tr>
                 <tr>
@@ -87,7 +87,7 @@
                 </tr>
                 <tr>
                     <td class="label" style="vertical-align: top;"><fmt:message key="main.content"/>:</td>
-                    <td class="value"><form:textarea path="content"/></td>
+                    <td class="value"><form:textarea id="contentId" path="content"/></td>
                 </tr>
             </table>
 
@@ -128,6 +128,13 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
+
+        <c:if test="${child.key != null}">
+            $('#contentId').get(0).focus();
+        </c:if>
+        <c:if test="${child.key == null}">
+            $('#usernameId').get(0).focus();
+        </c:if>
 
         // Custom example logic
         function getElemById(id) {
