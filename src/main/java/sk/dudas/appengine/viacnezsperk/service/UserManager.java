@@ -17,4 +17,6 @@ public interface UserManager extends BaseManager<Key, User> {
     void persistOrMergeUser(User user);
 
     List<User> findAllUnattachedUsers();
+
+    List<User> getUsers(String searchValue);
 }

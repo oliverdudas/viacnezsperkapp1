@@ -108,6 +108,11 @@ public class User extends BaseEntity implements UserDetails {
         return firstname + " " + lastname;
     }
 
+    public String getAllNames() {
+        String username = getUsername() != null ? getUsername() : Constants.EMPTY;
+        return username + " " + getFullname();
+    }
+
     public String getFirstname() {
         return firstname;
     }
