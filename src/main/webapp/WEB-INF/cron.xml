@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cronentries>
-  <cron>
-    <url>/cron/load</url>
-    <description>Application keeping alive request</description>
-    <schedule>every 1 minutes</schedule>
-  </cron>
+    <cron>
+        <url>/cron/load</url>
+        <description>Application keeping alive request</description>
+        <schedule>every 1 minutes</schedule>
+    </cron>
+
+    <cron>
+        <url>/sessioncleanup</url>
+        <description>Clean up sessions</description>
+        <schedule>every day 00:00</schedule>
+    </cron>
 </cronentries>

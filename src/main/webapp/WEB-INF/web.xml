@@ -74,8 +74,39 @@
     </error-page>
 
     <context-param>
-      <param-name>javax.servlet.jsp.jstl.fmt.fallbackLocale</param-name>
-      <param-value>sk</param-value>
+        <param-name>javax.servlet.jsp.jstl.fmt.fallbackLocale</param-name>
+        <param-value>sk</param-value>
     </context-param>
+
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+
+    <!--<servlet>-->
+    <!--<servlet-name>sessioncleanup</servlet-name>-->
+    <!--<servlet-class>sk.dudas.appengine.viacnezsperk.servlet.SessionCleanupServlet</servlet-class>-->
+    <!--<load-on-startup>1</load-on-startup>-->
+    <!--</servlet>-->
+
+    <!--<servlet-mapping>-->
+    <!--<servlet-name>sessioncleanup</servlet-name>-->
+    <!--<url-pattern>/sessioncleanup</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+    <!--<listener>-->
+    <!--<listener-class>sk.dudas.appengine.viacnezsperk.servlet.SessionListenerServlet</listener-class>-->
+    <!--</listener>-->
+
+    <!--official session cleanup servlet-->
+    <!--<servlet>-->
+    <!--<servlet-name>_ah_sessioncleanup</servlet-name>-->
+    <!--<servlet-class>com.google.apphosting.utils.servlet.SessionCleanupServlet</servlet-class>-->
+    <!--</servlet>-->
+
+    <!--<servlet-mapping>-->
+    <!--<servlet-name>_ah_sessioncleanup</servlet-name>-->
+    <!--<url-pattern>/_ah/sessioncleanup</url-pattern>-->
+    <!--</servlet-mapping>-->
+
 
 </web-app>
