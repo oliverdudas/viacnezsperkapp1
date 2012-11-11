@@ -27,6 +27,9 @@ public class User extends BaseEntity implements UserDetails {
     private String firstname;
     private String lastname;
     private Integer age;
+    private Integer bornYear;
+    private String residence;
+    private String socialInfo;
     private Date created;
     private String  createdBy;
     private Date modified;
@@ -100,6 +103,20 @@ public class User extends BaseEntity implements UserDetails {
 
     public boolean isUser() {
         return this.hasRole(Role.ROLE_USER);
+    }
+
+    public boolean isValidMainURL() {
+        return mainURL != null && !mainURL.isEmpty();
+    }
+
+    public boolean isValidBornYear() {
+        return bornYear != null;
+    }
+    public boolean isValidResidence() {
+        return residence != null && !residence.isEmpty();
+    }
+    public boolean isValidSocialInfo() {
+        return socialInfo != null && !socialInfo.isEmpty();
     }
 
     public String getFullname() {
@@ -183,5 +200,29 @@ public class User extends BaseEntity implements UserDetails {
 
     public void setContent(Text content) {
         this.content = content;
+    }
+
+    public Integer getBornYear() {
+        return bornYear;
+    }
+
+    public void setBornYear(Integer bornYear) {
+        this.bornYear = bornYear;
+    }
+
+    public String getResidence() {
+        return residence;
+    }
+
+    public void setResidence(String residence) {
+        this.residence = residence;
+    }
+
+    public String getSocialInfo() {
+        return socialInfo;
+    }
+
+    public void setSocialInfo(String socialInfo) {
+        this.socialInfo = socialInfo;
     }
 }

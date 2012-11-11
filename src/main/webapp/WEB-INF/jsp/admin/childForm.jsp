@@ -66,13 +66,26 @@
                     <td class="value"><form:input path="firstname"/></td>
                 </tr>
                 <tr>
-                    <td class="label"><fmt:message key="lastname"/>:</td>
-                    <td class="value"><form:input path="lastname"/></td>
+                    <td class="label"><fmt:message key="bornYear"/>:</td>
+                    <td class="value"><form:input path="bornYear"/><form:errors cssClass="form-error" path="bornYear"/></td>
                 </tr>
                 <tr>
-                    <td class="label"><fmt:message key="age"/>:</td>
-                    <td class="value"><form:input path="age"/><form:errors cssClass="form-error" path="age"/></td>
+                    <td class="label"><fmt:message key="residence"/>:</td>
+                    <td class="value"><form:input path="residence"/></td>
                 </tr>
+                <tr>
+                    <td class="label"><fmt:message key="socialInfo"/>:</td>
+                    <td class="value"><form:input path="socialInfo"/></td>
+                </tr>
+
+                <%--<tr>--%>
+                    <%--<td class="label"><fmt:message key="lastname"/>:</td>--%>
+                    <%--<td class="value"><form:input path="lastname"/></td>--%>
+                <%--</tr>--%>
+                <%--<tr>--%>
+                    <%--<td class="label"><fmt:message key="age"/>:</td>--%>
+                    <%--<td class="value"><form:input path="age"/><form:errors cssClass="form-error" path="age"/></td>--%>
+                <%--</tr>--%>
                 <tr>
                     <td class="label"><fmt:message key="main.url"/>:</td>
                     <td class="value">

@@ -40,8 +40,7 @@
 
         <%--@elvariable id="holder" type="org.springframework.beans.support.PagedListHolder>"--%>
         <div class="tableWrapper">
-            <c:set var="searchWatermark"><fmt:message key="login.name.short"/>, <fmt:message key="name"/>, <fmt:message
-                    key="lastname"/></c:set>
+            <c:set var="searchWatermark"><fmt:message key="login.name.short"/>, <fmt:message key="name"/></c:set>
             <div style="font-size: 0.7em;color: #969696;">(${searchWatermark})</div>
             <div>
                 <form action="<c:url value="${pageView}"/>" method="post">
@@ -71,13 +70,13 @@
                                 <fmt:message key="name"/>
                             </a>
                         </th>
-                        <th>
-                            <a href="<c:url value="${pageView}">
-                                        <c:param name="sort.property" value="lastname"/>
-                                     </c:url>">
-                                <fmt:message key="lastname"/>
-                            </a>
-                        </th>
+                        <%--<th>--%>
+                            <%--<a href="<c:url value="${pageView}">--%>
+                                        <%--<c:param name="sort.property" value="lastname"/>--%>
+                                     <%--</c:url>">--%>
+                                <%--<fmt:message key="lastname"/>--%>
+                            <%--</a>--%>
+                        <%--</th>--%>
                         <th>
                             <a href="<c:url value="${pageView}">
                                         <c:param name="sort.property" value="<%=UserController.MODIFIED%>"/>
@@ -108,9 +107,9 @@
                                 <td class="td">
                                     <div>${child.firstname}</div>
                                 </td>
-                                <td class="td">
-                                    <div>${child.lastname}</div>
-                                </td>
+                                <%--<td class="td">--%>
+                                    <%--<div>${child.lastname}</div>--%>
+                                <%--</td>--%>
                                 <td class="td">
                                     <div><fmt:formatDate value="${child.modified}" pattern="dd.MM.yyyy HH:mm"/></div>
                                 </td>
