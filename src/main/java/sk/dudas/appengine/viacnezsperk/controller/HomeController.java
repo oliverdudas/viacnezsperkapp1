@@ -28,6 +28,11 @@ public class HomeController {
     @Autowired
     private UserManager userManager;
 
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String welcome() {
+        return "redirect:/home";
+    }
+
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String list(ModelMap modelMap, @RequestParam(defaultValue = "0", required = false) long id) {
         logger.log(Level.INFO, "Home");

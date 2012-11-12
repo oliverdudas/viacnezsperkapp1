@@ -31,7 +31,7 @@ public class User extends BaseEntity implements UserDetails {
     private String residence;
     private String socialInfo;
     private Date created;
-    private String  createdBy;
+    private String createdBy;
     private Date modified;
     private String modifiedBy;
     private String mainURL;
@@ -109,12 +109,18 @@ public class User extends BaseEntity implements UserDetails {
         return mainURL != null && !mainURL.isEmpty();
     }
 
+    public boolean isValidFirstname() {
+        return firstname != null && !firstname.isEmpty();
+    }
+
     public boolean isValidBornYear() {
         return bornYear != null;
     }
+
     public boolean isValidResidence() {
         return residence != null && !residence.isEmpty();
     }
+
     public boolean isValidSocialInfo() {
         return socialInfo != null && !socialInfo.isEmpty();
     }

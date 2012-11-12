@@ -73,10 +73,10 @@
                     <td class="label"><fmt:message key="residence"/>:</td>
                     <td class="value"><form:input path="residence"/></td>
                 </tr>
-                <tr>
-                    <td class="label"><fmt:message key="socialInfo"/>:</td>
-                    <td class="value"><form:input path="socialInfo"/></td>
-                </tr>
+                <%--<tr>--%>
+                    <%--<td class="label"><fmt:message key="socialInfo"/>:</td>--%>
+                    <%--<td class="value"><form:input path="socialInfo"/></td>--%>
+                <%--</tr>--%>
 
                 <%--<tr>--%>
                     <%--<td class="label"><fmt:message key="lastname"/>:</td>--%>
