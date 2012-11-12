@@ -1,1 +1,1 @@
-Cufon.replace('h1, h2', { fontFamily:'ArnoPro', hover:true });
+Cufon.replace('h1', { fontFamily:'ArnoPro', hover:true });

@@ -37,6 +37,11 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
 }
 
+h2 {
+    color: #000;
+    font-weight: normal;
+}
+
 #main {
     font-size: 0.813em;
     min-width: 960px;
@@ -376,12 +381,13 @@ input[type="submit"]:hover, input[type="button"]:hover {
 .detailTable td.label {
     color: #000;
     padding-right: 20px !important;
+    white-space: nowrap;
 }
 
 .detailTable td.value {
     color: #474747;
 }
 
-hr.detailSeparator {
+hr {
     margin: 20px 0;
 }
