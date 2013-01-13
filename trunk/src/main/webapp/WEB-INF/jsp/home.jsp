@@ -20,6 +20,7 @@
     $(document).ready(function () {
         $("a[rel^='prettyPhoto']").prettyPhoto({
             social_tools:'',
+            show_title: false,
             default_width:600,
             default_height:800
         });
