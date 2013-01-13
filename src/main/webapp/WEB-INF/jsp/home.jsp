@@ -7,7 +7,7 @@
 
 <style type="text/css">
     #homeGallery {
-        display: inline-block;
+        /*display: inline-block;*/
     }
 
     #homeGallery .homeGalleryItemWrapper {
@@ -20,7 +20,7 @@
     $(document).ready(function () {
         $("a[rel^='prettyPhoto']").prettyPhoto({
             social_tools:'',
-            show_title: false,
+            show_title:false,
             default_width:600,
             default_height:800
         });
@@ -57,9 +57,6 @@
                         </c:if>
                     </table>
                 </div>
-                <hr/>
-                <h2><fmt:message key="socialInfo"/></h2>
-                ${user.content.value}
                 <c:if test="${user.validGalleryItems}">
                     <div id="homeGallery">
                         <hr/>
@@ -73,6 +70,9 @@
                         </c:forEach>
                     </div>
                 </c:if>
+                <hr/>
+                <h2><fmt:message key="socialInfo"/></h2>
+                ${user.content.value}
             </font>
         </p>
     </div>
