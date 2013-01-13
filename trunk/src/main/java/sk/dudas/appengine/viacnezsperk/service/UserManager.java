@@ -1,8 +1,12 @@
 package sk.dudas.appengine.viacnezsperk.service;
 
 import com.google.appengine.api.datastore.Key;
+import com.google.gdata.data.photos.PhotoEntry;
+import com.google.gdata.util.ServiceException;
+import org.gmr.web.multipart.GMultipartFile;
 import sk.dudas.appengine.viacnezsperk.domain.User;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -13,6 +17,8 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public interface UserManager extends BaseManager<Key, User> {
+
+    PhotoEntry uploadPhotoToPicasa(GMultipartFile file) throws IOException, ServiceException;
 
     void persistOrMergeUser(User user);
 

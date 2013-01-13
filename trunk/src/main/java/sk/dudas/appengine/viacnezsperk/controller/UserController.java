@@ -1,10 +1,7 @@
 package sk.dudas.appengine.viacnezsperk.controller;
 
 import com.google.appengine.api.datastore.Text;
-import com.google.gdata.client.photos.PicasawebService;
 import com.google.gdata.data.MediaContent;
-import com.google.gdata.data.PlainTextConstruct;
-import com.google.gdata.data.media.MediaStreamSource;
 import com.google.gdata.data.photos.PhotoEntry;
 import com.google.gdata.util.ServiceException;
 import org.gmr.web.multipart.GMultipartFile;
@@ -20,14 +17,13 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.support.DefaultMultipartHttpServletRequest;
 import sk.dudas.appengine.viacnezsperk.controller.bind.CustomTextBinder;
-import sk.dudas.appengine.viacnezsperk.controller.bind.CustomUserPasswordBinder;
 import sk.dudas.appengine.viacnezsperk.controller.validator.UserValidator;
+import sk.dudas.appengine.viacnezsperk.domain.GalleryItem;
 import sk.dudas.appengine.viacnezsperk.domain.User;
 import sk.dudas.appengine.viacnezsperk.service.UserManager;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.net.URL;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -153,32 +149,50 @@ public class UserController {
     public
     @ResponseBody
     String uploadTest(@ModelAttribute(value = CHILD_COMMAND) User child, HttpServletRequest request) throws IOException, ServiceException {
-        GMultipartFile file = (GMultipartFile) ((DefaultMultipartHttpServletRequest) request).getFileMap().get("file");
-
-        String userId = "104004273393078620402"; //oliver.dudas@viacnezsperk.sk
-        String albumid = "5804367311941076033"; //viacnezsperk album on oliver.dudas@viacnezsperk.sk account
-
-        URL albumPostUrl = new URL("https://picasaweb.google.com/data/feed/api/user/" + userId + "/albumid/" + albumid);
-
-        PhotoEntry myPhoto = new PhotoEntry();
-        myPhoto.setTitle(new PlainTextConstruct(file.getOriginalFilename()));
-        myPhoto.setDescription(new PlainTextConstruct(file.getOriginalFilename()));
-//        myPhoto.setClient("myClientName");
-
-        MediaStreamSource myMedia = new MediaStreamSource(file.getInputStream(), "image/jpeg");
-        myPhoto.setMediaSource(myMedia);
-
-        PicasawebService myService = new PicasawebService("viacnezsperk");
-        myService.setReadTimeout(1000000);
-        myService.setConnectTimeout(1000000);
-        myService.setUserCredentials("oliver.dudas@viacnezsperk.sk", "sperk123");
-
-        PhotoEntry returnedPhoto = myService.insert(albumPostUrl, myPhoto);
+        PhotoEntry returnedPhoto = uploadPhotoToPicasa((DefaultMultipartHttpServletRequest) request);
 
         String photoUri = ((MediaContent) returnedPhoto.getContent()).getUri();
         child.setMainURL(photoUri);
 
         return photoUri;
+    }
+
+    @RequestMapping(value = "/admin/uploadGalleryItem")
+    public
+    @ResponseBody
+    GalleryItem galleryItemUpload(@ModelAttribute(value = CHILD_COMMAND) User child, HttpServletRequest request) throws IOException, ServiceException {
+        PhotoEntry returnedPhoto = uploadPhotoToPicasa((DefaultMultipartHttpServletRequest) request);
+
+        String imageUrl = ((MediaContent) returnedPhoto.getContent()).getUri();
+        String thumbUrl = returnedPhoto.getMediaThumbnails().get(1).getUrl();
+        String gphotoId = returnedPhoto.getGphotoId();
+        GalleryItem item = new GalleryItem(gphotoId, imageUrl, thumbUrl);
+        child.addGalleryItem(item);
+
+        return item;
+    }
+
+    private PhotoEntry uploadPhotoToPicasa(DefaultMultipartHttpServletRequest request) throws IOException, ServiceException {
+        GMultipartFile file = (GMultipartFile) ((DefaultMultipartHttpServletRequest) request).getFileMap().get("file");
+        return userManager.uploadPhotoToPicasa(file);
+    }
+
+    @RequestMapping(value = "/admin/deleteGalleryItem")
+    public
+    @ResponseBody
+    String deleteGalleryItem(@ModelAttribute(value = CHILD_COMMAND) User child, @RequestParam(value = "gphotoId", required = true) String gphotoId) {
+        List<GalleryItem> galleryItems = (List<GalleryItem>) child.getGalleryItems();
+        if (galleryItems != null) {
+            for (GalleryItem galleryItem : galleryItems) {
+                if (gphotoId.equals(galleryItem.getGphotoId())) {
+                    galleryItems.remove(galleryItem);
+                    break;
+                }
+            }
+
+        }
+
+        return String.valueOf(true);
     }
 
     @RequestMapping(value = ADMIN_CHILD_FORM_VIEW, method = RequestMethod.POST, params = "cancel")
