@@ -1,6 +1,12 @@
 package sk.dudas.appengine.viacnezsperk.service;
 
 import com.google.appengine.api.datastore.Key;
+import com.google.gdata.client.photos.PicasawebService;
+import com.google.gdata.data.PlainTextConstruct;
+import com.google.gdata.data.media.MediaStreamSource;
+import com.google.gdata.data.photos.PhotoEntry;
+import com.google.gdata.util.ServiceException;
+import org.gmr.web.multipart.GMultipartFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -13,6 +19,8 @@ import sk.dudas.appengine.viacnezsperk.util.MainUtil;
 import sk.dudas.appengine.viacnezsperk.util.StringUtils;
 
 import javax.annotation.PostConstruct;
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -28,6 +36,18 @@ import java.util.List;
 @Service("userManager")
 public class UserManagerImpl extends BaseManagerImpl<Key, User> implements UserManager {
 
+    /**
+     * oliver.dudas@viacnezsperk.sk google user id
+     */
+    private static final String GOOGLE_USER_ID = "104004273393078620402";
+    private static final String GOOGLE_USER_EMAIL = "oliver.dudas@viacnezsperk.sk";
+    private static final String GOOGLE_USER_EMAIL_PASSWORD = "sperk123";
+
+    /**
+     * viacnezsperk album id on oliver.dudas@viacnezsperk.sk google user
+     */
+    private static final String GOOGLE_USER_PICASA_ALBUM_ID = "5804367311941076033";
+
     @Autowired
     @Qualifier("userDao")
     private UserDao dao;
@@ -35,6 +55,25 @@ public class UserManagerImpl extends BaseManagerImpl<Key, User> implements UserM
     @PostConstruct
     public final void init() {
         super.setBaseDao(dao);
+    }
+
+    public PhotoEntry uploadPhotoToPicasa(GMultipartFile file) throws IOException, ServiceException {
+        URL albumPostUrl = new URL("https://picasaweb.google.com/data/feed/api/user/" + GOOGLE_USER_ID + "/albumid/" + GOOGLE_USER_PICASA_ALBUM_ID);
+
+        PhotoEntry myPhoto = new PhotoEntry();
+        myPhoto.setTitle(new PlainTextConstruct(file.getOriginalFilename()));
+        myPhoto.setDescription(new PlainTextConstruct(file.getOriginalFilename()));
+//        myPhoto.setClient("myClientName");
+
+        MediaStreamSource myMedia = new MediaStreamSource(file.getInputStream(), "image/jpeg");
+        myPhoto.setMediaSource(myMedia);
+
+        PicasawebService myService = new PicasawebService("viacnezsperk");
+        myService.setReadTimeout(1000000);
+        myService.setConnectTimeout(1000000);
+        myService.setUserCredentials(GOOGLE_USER_EMAIL, GOOGLE_USER_EMAIL_PASSWORD);
+
+        return myService.insert(albumPostUrl, myPhoto);
     }
 
     public void persistOrMergeUser(User user) {

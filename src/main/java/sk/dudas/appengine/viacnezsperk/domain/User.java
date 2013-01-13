@@ -8,6 +8,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
@@ -39,6 +40,9 @@ public class User extends BaseEntity implements UserDetails {
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Role.class)
     private Collection<Role> roles;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = GalleryItem.class)
+    private Collection<GalleryItem> galleryItems;
 
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return getRoles();
@@ -119,6 +123,10 @@ public class User extends BaseEntity implements UserDetails {
 
     public boolean isValidResidence() {
         return residence != null && !residence.isEmpty();
+    }
+
+    public boolean isValidGalleryItems() {
+        return galleryItems != null && galleryItems.size() > 0;
     }
 
     public boolean isValidSocialInfo() {
@@ -230,5 +238,26 @@ public class User extends BaseEntity implements UserDetails {
 
     public void setSocialInfo(String socialInfo) {
         this.socialInfo = socialInfo;
+    }
+
+    public Collection<GalleryItem> getGalleryItems() {
+        return galleryItems;
+    }
+
+    public void setGalleryItems(Collection<GalleryItem> galleryItems) {
+        this.galleryItems = galleryItems;
+    }
+
+    public void addGalleryItem(GalleryItem galleryItem) {
+        if (galleryItems != null) {
+        } else {
+            galleryItems = new ArrayList<GalleryItem>();
+        }
+        // we are putting the item to the end of galleryitems
+//        if (galleryItem.getIndex() == null) {
+//            int size = galleryItems.size();
+//            galleryItem.setIndex(size);
+//        }
+        galleryItems.add(galleryItem);
     }
 }

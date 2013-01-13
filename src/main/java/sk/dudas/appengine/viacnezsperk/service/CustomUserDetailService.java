@@ -3,8 +3,7 @@ package sk.dudas.appengine.viacnezsperk.service;
 import com.google.appengine.api.datastore.Key;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
-import org.springframework.security.authentication.encoding.PasswordEncoder;
+import org.springframework.core.env.Environment;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -40,10 +39,18 @@ public class CustomUserDetailService extends BaseManagerImpl<Key, User> implemen
     @Qualifier("userManager")
     private UserManager userManager;
 
+    @Autowired
+    private Environment environment;
+
     @PostConstruct
     public final void init() {
         super.setBaseDao(dao);
-        initUsers();
+        String[] activeProfiles = environment.getActiveProfiles();
+        if (activeProfiles.length == 1 && activeProfiles[0].equals("test")) {
+            //todo: in the test phase we dont call initUsers()
+        } else {
+            initUsers();
+        }
     }
 
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

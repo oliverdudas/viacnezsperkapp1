@@ -1,6 +1,31 @@
 <%--@elvariable id="user" type="sk.dudas.appengine.viacnezsperk.domain.User"--%>
 <%@ include file="includes.jsp" %>
 
+<link rel="stylesheet" href="<c:url value="/js/prettyphoto/css/prettyPhoto.css"/>" type="text/css" media="screen"
+      charset="utf-8"/>
+<script src="<c:url value="/js/prettyphoto/js/jquery.prettyPhoto.js"/>" type="text/javascript" charset="utf-8"></script>
+
+<style type="text/css">
+    #homeGallery {
+        display: inline-block;
+    }
+
+    #homeGallery .homeGalleryItemWrapper {
+        display: inline-block;
+        padding: 3px 3px 0 0;
+    }
+</style>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function () {
+        $("a[rel^='prettyPhoto']").prettyPhoto({
+            social_tools:'',
+            default_width:600,
+            default_height:800
+        });
+    });
+</script>
+
 <div class="contentWrapper">
 
     <div>
@@ -34,6 +59,19 @@
                 <hr/>
                 <h2><fmt:message key="socialInfo"/></h2>
                 ${user.content.value}
+                <c:if test="${user.validGalleryItems}">
+                    <div id="homeGallery">
+                        <hr/>
+                        <h2><fmt:message key="gallery"/></h2>
+                        <c:forEach items="${user.galleryItems}" var="item">
+                            <span class="homeGalleryItemWrapper">
+                                <a href="${item.imageUrl}" rel="prettyPhoto [gallery]">
+                                    <img src="${item.thumbUrl}" alt="...">
+                                </a>
+                            </span>
+                        </c:forEach>
+                    </div>
+                </c:if>
             </font>
         </p>
     </div>

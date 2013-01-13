@@ -6,14 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
-import org.springframework.security.authentication.encoding.PasswordEncoder;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.test.context.ActiveProfiles;
 import sk.dudas.appengine.viacnezsperk.domain.Role;
 import sk.dudas.appengine.viacnezsperk.domain.User;
-import sk.dudas.appengine.viacnezsperk.service.CustomUserDetailService;
 import sk.dudas.appengine.viacnezsperk.service.UserManager;
 
 import java.util.ArrayList;
@@ -26,6 +23,7 @@ import java.util.List;
  * Time: 19:46
  * To change this template use File | Settings | File Templates.
  */
+@ActiveProfiles("test")
 public abstract class AbstractSecurityTest extends BaseTest {
 
     private static final String ADMIN = "admin";
@@ -55,9 +53,10 @@ public abstract class AbstractSecurityTest extends BaseTest {
 
     protected void addUser(String namePass, String... roleNames) {
         User user = new User();
-        PasswordEncoder encoder = new Md5PasswordEncoder();
-        String hashedPass = encoder.encodePassword(namePass, null);
-        user.setPassword(hashedPass);
+//        PasswordEncoder encoder = new Md5PasswordEncoder();
+//        String hashedPass = encoder.encodePassword(namePass, null);
+//        user.setPassword(hashedPass);
+        user.setPassword(namePass);
         user.setUsername(namePass);
         ArrayList<Role> roles = new ArrayList<Role>();
         for (String roleName : roleNames) {
