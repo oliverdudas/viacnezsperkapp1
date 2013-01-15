@@ -11,6 +11,7 @@
           access-denied-page="/denied">
         <intercept-url pattern="/login" access="permitAll"/>
         <intercept-url pattern="/sessioncleanup" access="permitAll"/>
+        <intercept-url pattern="/cron/load" access="permitAll"/>
         <intercept-url pattern="/admin/*" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/*" access="hasRole('ROLE_USER')"/>
 

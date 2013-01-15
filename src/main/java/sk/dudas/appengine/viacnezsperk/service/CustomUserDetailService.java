@@ -39,18 +39,18 @@ public class CustomUserDetailService extends BaseManagerImpl<Key, User> implemen
     @Qualifier("userManager")
     private UserManager userManager;
 
-    @Autowired
-    private Environment environment;
+//    @Autowired
+//    private Environment environment;
 
     @PostConstruct
     public final void init() {
         super.setBaseDao(dao);
-        String[] activeProfiles = environment.getActiveProfiles();
-        if (activeProfiles.length == 1 && activeProfiles[0].equals("test")) {
-            //todo: in the test phase we dont call initUsers()
-        } else {
-            initUsers();
-        }
+//        String[] activeProfiles = environment.getActiveProfiles();
+//        if (activeProfiles.length == 1 && activeProfiles[0].equals("test")) {
+//            //todo: in the test phase we dont call initUsers()
+//        } else {
+//            initUsers();
+//        }
     }
 
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -77,13 +77,14 @@ public class CustomUserDetailService extends BaseManagerImpl<Key, User> implemen
     }
 
     private void initUsers() {
-        List<User> all = userManager.findAll();
-        if (all == null || all.size() == 0) {
-            addUser(ADMIN, Role.ROLE_ADMIN, Role.ROLE_USER);
+        //todo: !!! sposobuje vycerpanie kvoty(Datastore Read Operations) pri kazdom nacitani contextu
+//        List<User> all = userManager.findAll();
+//        if (all == null || all.size() == 0) {
+//            addUser(ADMIN, Role.ROLE_ADMIN, Role.ROLE_USER);
 //            addUser("fero", Role.ROLE_USER);
 //            addUser("jozo", Role.ROLE_USER);
 //            addUser("dezi", Role.ROLE_USER);
 //            addUser("pepi", Role.ROLE_USER);
-        }
+//        }
     }
 }
