@@ -25,4 +25,6 @@ public interface UserManager extends BaseManager<Key, User> {
     List<User> findAllUnattachedUsers();
 
     List<User> getUsers(String searchValue);
+
+    void removeUser(Key key);
 }
