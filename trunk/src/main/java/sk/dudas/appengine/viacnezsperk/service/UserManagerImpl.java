@@ -47,6 +47,7 @@ public class UserManagerImpl extends BaseManagerImpl<Key, User> implements UserM
      * viacnezsperk album id on oliver.dudas@viacnezsperk.sk google user
      */
     private static final String GOOGLE_USER_PICASA_ALBUM_ID = "5804367311941076033";
+    private static final String USERS = "USERS";
 
     @Autowired
     @Qualifier("userDao")
@@ -91,6 +92,41 @@ public class UserManagerImpl extends BaseManagerImpl<Key, User> implements UserM
             user.setModifiedBy(fullname);
             merge(user);
         }
+        updateUsersInCache(user);
+    }
+
+    @Override
+    public void removeUser(Key key) {
+        remove(key);
+        removeUserFromCache(key);
+    }
+
+    private void removeUserFromCache(Key key) {
+        List<User> unattachedUsers = findAllUnattachedUsers();
+        for (User unattachedUser : unattachedUsers) {
+            if (unattachedUser.getKey().getId() == key.getId()) {
+                unattachedUsers.remove(unattachedUser);
+                putObjectToCache(USERS, unattachedUsers);
+                break;
+            }
+        }
+    }
+
+    private void updateUsersInCache(User user) {
+        List<User> unattachedUsers = findAllUnattachedUsers();
+        if (user.getKey() != null) {
+            for (User unattachedUser : unattachedUsers) {
+                if (unattachedUser.getKey().getId() == user.getKey().getId()) {
+                    unattachedUsers.remove(unattachedUser);
+                    unattachedUsers.add(user);
+                    putObjectToCache(USERS, unattachedUsers);
+                    break;
+                }
+            }
+        } else {
+            unattachedUsers.add(user);
+            putObjectToCache(USERS, unattachedUsers);
+        }
     }
 
     private void addDefaultRole(User child) {
@@ -107,7 +143,14 @@ public class UserManagerImpl extends BaseManagerImpl<Key, User> implements UserM
      * @return
      */
     public List<User> findAllUnattachedUsers() {
-        return new ArrayList<User>(findAll());
+        List<User> users = getObjectFromCache(USERS);
+        if (users != null) {
+            return users;
+        } else {
+            users = new ArrayList<User>(findAll());
+            putObjectToCache(USERS, users);
+        }
+        return users;
     }
 
     public List<User> getUsers(String searchValue) {

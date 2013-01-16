@@ -48,6 +48,7 @@ public class UserController {
     public static final String ADMIN_CHILD_DELETE = "/admin/delete";
     public static final String MODIFIED = "modified";
     public static final String SEARCH_VALUE = "searchValue";
+    private static final String LAST_SORT = "lastSort";
 
     @Autowired
     private UserManager userManager;
@@ -64,9 +65,6 @@ public class UserController {
     @RequestMapping(value = ADMIN_CHILDREN_VIEW, method = RequestMethod.POST)
     public String search(HttpServletRequest request, @RequestParam(defaultValue = "") String searchValue) {
         request.getSession().setAttribute(SEARCH_VALUE, searchValue);
-        List<User> users = userManager.getUsers(searchValue);
-        PagedListHolder<User> holder = getHolder(request);
-        holder.setSource(users);
         return "redirect:" + ADMIN_CHILDREN_VIEW;
     }
 
@@ -74,32 +72,21 @@ public class UserController {
     public void list(HttpServletRequest request, ModelMap modelMap, @RequestParam(defaultValue = "0") int p) {
         logger.log(Level.INFO, "Zoznam deti");
 
-        PagedListHolder<User> pagedListHolder = getHolder(request);
-        if (pagedListHolder == null) {
-            List<User> all = userManager.findAllUnattachedUsers();
-            pagedListHolder = new PagedListHolder<User>(all);
-            setHolder(request, pagedListHolder);
-            int pageSize = 25;
-            pagedListHolder.setPageSize(pageSize);
-            MutableSortDefinition sort = (MutableSortDefinition) pagedListHolder.getSort();
-            sort.setProperty(MODIFIED);
-            sort.setAscending(false);
-        }
-        pagedListHolder.setPage(p);
+        PagedListHolder<User> pagedListHolder;
+        List<User> all = userManager.getUsers((String) request.getSession().getAttribute(SEARCH_VALUE));
+        pagedListHolder = new PagedListHolder<User>(all);
+        int pageSize = 25;
+        pagedListHolder.setPageSize(pageSize);
+        MutableSortDefinition sort = (MutableSortDefinition) pagedListHolder.getSort();
+        sort.setProperty(MODIFIED);
+        sort.setAscending(false);
         modelMap.addAttribute(HOLDER, pagedListHolder);
 
         ServletRequestDataBinder binder = new ServletRequestDataBinder(pagedListHolder, HOLDER);
         binder.bind(request);
 
         pagedListHolder.resort();
-    }
-
-    private PagedListHolder<User> getHolder(HttpServletRequest request) {
-        return (PagedListHolder<User>) request.getSession().getAttribute(LIST_HOLDER);
-    }
-
-    private void setHolder(HttpServletRequest request, PagedListHolder<User> pagedListHolder) {
-        request.getSession().setAttribute(LIST_HOLDER, pagedListHolder);
+        pagedListHolder.setPage(p);
     }
 
     @RequestMapping(value = ADMIN_CHILD_FORM_VIEW, method = RequestMethod.GET)
@@ -118,8 +105,7 @@ public class UserController {
     @RequestMapping(value = ADMIN_CHILD_FORM_VIEW, method = RequestMethod.POST, params = "delete")
     public String delete(@ModelAttribute(value = CHILD_COMMAND) User child, HttpServletRequest request) {
         if (child.getKey() != null) {
-            userManager.remove(child.getKey());
-            refreshHolder(request);
+            userManager.removeUser(child.getKey());
         }
         return "redirect:" + ADMIN_CHILDREN_VIEW;
     }
@@ -135,14 +121,9 @@ public class UserController {
             return "admin/childForm";
         } else {
             userManager.persistOrMergeUser(child);
-            refreshHolder(request);
             sessionStatus.setComplete();
             return "redirect:" + ADMIN_CHILDREN_VIEW;
         }
-    }
-
-    private void refreshHolder(HttpServletRequest request) {
-        request.getSession().removeAttribute(LIST_HOLDER);
     }
 
     @RequestMapping(value = "/admin/uploadTest")

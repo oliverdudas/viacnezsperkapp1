@@ -1,10 +1,14 @@
 package sk.dudas.appengine.viacnezsperk.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import sk.dudas.appengine.viacnezsperk.dao.BaseDao;
 import sk.dudas.appengine.viacnezsperk.domain.BaseEntity;
+import sk.dudas.appengine.viacnezsperk.service.cache.CacheHolder;
 
+import javax.cache.Cache;
 import java.util.List;
 
 /**
@@ -23,8 +27,25 @@ public abstract class BaseManagerImpl<K, E extends BaseEntity> implements BaseMa
 //    @PersistenceContext
 //    protected EntityManager entityManager;
 
+    private Cache cache;
+
     protected void setBaseDao(BaseDao<K, E> baseDao) {
         this.baseDao = baseDao;
+    }
+
+    @Autowired
+    private void setPictureCache(@Qualifier("cacheHolder") CacheHolder cacheHolder) {
+        this.cache = cacheHolder.getCache();
+    }
+
+    @SuppressWarnings(value = "unchecked")
+    protected <C> void putObjectToCache(String key, C value) {
+        cache.put(key, value);
+    }
+
+    @SuppressWarnings(value = "unchecked")
+    protected  <C> C getObjectFromCache(String key) {
+        return (C) cache.get(key);
     }
 
     public void persist(E entity) {
