@@ -6,9 +6,9 @@
         <schedule>every 1 minutes</schedule>
     </cron>
 
-    <cron>
-        <url>/sessioncleanup</url>
-        <description>Clean up sessions</description>
-        <schedule>every day 00:00</schedule>
-    </cron>
+    <!--<cron>-->
+        <!--<url>/sessioncleanup</url>-->
+        <!--<description>Clean up sessions</description>-->
+        <!--<schedule>every day 00:00</schedule>-->
+    <!--</cron>-->
 </cronentries>
