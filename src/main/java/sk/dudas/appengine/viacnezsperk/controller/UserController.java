@@ -120,7 +120,7 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             return "admin/childForm";
         } else {
-            userManager.persistOrMergeUser(child);
+            userManager.persistOrMergeNonTransactionalUser(child);
             sessionStatus.setComplete();
             return "redirect:" + ADMIN_CHILDREN_VIEW;
         }

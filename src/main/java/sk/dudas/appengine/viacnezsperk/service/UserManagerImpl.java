@@ -77,7 +77,8 @@ public class UserManagerImpl extends BaseManagerImpl<Key, User> implements UserM
         return myService.insert(albumPostUrl, myPhoto);
     }
 
-    public void persistOrMergeUser(User user) {
+    @Transactional(propagation = Propagation.NOT_SUPPORTED)
+    public void persistOrMergeNonTransactionalUser(User user) {
         Date date = new Date();
         String fullname = MainUtil.getLoggedUser().getFullname();
         if (user.getKey() == null) {
@@ -86,11 +87,11 @@ public class UserManagerImpl extends BaseManagerImpl<Key, User> implements UserM
             user.setModified(date);
             user.setModifiedBy(fullname);
             addDefaultRole(user);
-            persist(user);
+            persistNonTransactional(user);
         } else {
             user.setModified(date);
             user.setModifiedBy(fullname);
-            merge(user);
+            mergeNonTransactional(user);
         }
         updateUsersInCache(user);
     }

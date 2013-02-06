@@ -89,6 +89,11 @@ public abstract class BaseManagerImpl<K, E extends BaseEntity> implements BaseMa
         baseDao.removeEntity(clazz, id);
     }
 
+    @Transactional(propagation = Propagation.NOT_SUPPORTED)
+    public E mergeNonTransactional(E entity) {
+        return baseDao.merge(entity);
+    }
+
     public E merge(E entity) {
         return baseDao.merge(entity);
     }

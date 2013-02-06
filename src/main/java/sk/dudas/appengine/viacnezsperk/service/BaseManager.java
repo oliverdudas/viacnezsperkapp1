@@ -34,6 +34,8 @@ public interface BaseManager<K, E> {
     <T extends BaseEntity, I> void removeEntity(Class<T> clazz, I id);
 
     //    MERGE
+    E mergeNonTransactional(E entity);
+
     E merge(E entity);
 
     <T extends BaseEntity> T mergeEntity(T entity);
