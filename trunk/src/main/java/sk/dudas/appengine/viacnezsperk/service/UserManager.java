@@ -20,7 +20,7 @@ public interface UserManager extends BaseManager<Key, User> {
 
     PhotoEntry uploadPhotoToPicasa(GMultipartFile file) throws IOException, ServiceException;
 
-    void persistOrMergeUser(User user);
+    void persistOrMergeNonTransactionalUser(User user);
 
     List<User> findAllUnattachedUsers();
 
