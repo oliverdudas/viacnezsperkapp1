@@ -1,7 +1,12 @@
 package sk.dudas.appengine.viacnezsperk.service;
 
 import com.google.appengine.api.datastore.Key;
+import com.google.gdata.data.photos.AlbumEntry;
+import org.apache.commons.fileupload.disk.DiskFileItem;
+import org.gmr.web.multipart.GFileItem;
+import org.gmr.web.multipart.GMultipartFile;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import sk.dudas.appengine.viacnezsperk.AbstractSecurityTest;
 import sk.dudas.appengine.viacnezsperk.domain.GalleryItem;
 import sk.dudas.appengine.viacnezsperk.domain.Role;
@@ -20,11 +25,19 @@ import java.util.List;
  */
 public class UserManagerImplTest extends AbstractSecurityTest {
 
+    @Autowired
+    private PicasaManager picasaManager;
+
     @Test
     public void testGetUsers() throws Exception {
         List<User> all = userManager.findAll();
         System.out.println(all.size());
     }
+
+//    @Test
+//    public void testUpload() throws Exception {
+//        picasaManager.getAlbumIdWithFreeSpaceLeft(null);
+//    }
 
     @Test
     public void testGalleryItems() throws Exception {
@@ -48,7 +61,5 @@ public class UserManagerImplTest extends AbstractSecurityTest {
         for (GalleryItem galleryItem : galleryItems) {
             System.out.println("Item " + galleryItem.getIndex() + " with imageUrl: " + galleryItem.getImageUrl());
         }
-
-
     }
 }
