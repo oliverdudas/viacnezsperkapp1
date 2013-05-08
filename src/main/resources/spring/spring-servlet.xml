@@ -22,6 +22,7 @@
     <mvc:view-controller path="/home"/>
     <mvc:view-controller path="/denied"/>
 
+    <!--http://code.google.com/p/gmultipart/-->
     <bean id="multipartResolver" class="org.gmr.web.multipart.GMultipartResolver">
         <property name="maxUploadSize" value="104857666"/>
     </bean>

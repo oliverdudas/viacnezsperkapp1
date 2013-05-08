@@ -20,6 +20,7 @@ import sk.dudas.appengine.viacnezsperk.controller.bind.CustomTextBinder;
 import sk.dudas.appengine.viacnezsperk.controller.validator.UserValidator;
 import sk.dudas.appengine.viacnezsperk.domain.GalleryItem;
 import sk.dudas.appengine.viacnezsperk.domain.User;
+import sk.dudas.appengine.viacnezsperk.service.PicasaManager;
 import sk.dudas.appengine.viacnezsperk.service.UserManager;
 
 import javax.servlet.http.HttpServletRequest;
@@ -52,6 +53,9 @@ public class UserController {
 
     @Autowired
     private UserManager userManager;
+
+    @Autowired
+    private PicasaManager picasaManager;
 
     @Autowired
     private UserValidator userValidator;
@@ -155,7 +159,7 @@ public class UserController {
 
     private PhotoEntry uploadPhotoToPicasa(DefaultMultipartHttpServletRequest request) throws IOException, ServiceException {
         GMultipartFile file = (GMultipartFile) ((DefaultMultipartHttpServletRequest) request).getFileMap().get("file");
-        return userManager.uploadPhotoToPicasa(file);
+        return picasaManager.uploadPhotoToPicasa(file);
     }
 
     @RequestMapping(value = "/admin/deleteGalleryItem")
