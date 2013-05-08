@@ -7,14 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="f175d8da-0af5-4ce7-aeb8-67abad0c79b8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/PicasaManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/PicasaManagerImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/UserManager.java" afterPath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/UserManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/UserManagerImpl.java" afterPath="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/UserManagerImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/spring/spring-servlet.xml" afterPath="$PROJECT_DIR$/src/main/resources/spring/spring-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/sk/dudas/appengine/viacnezsperk/service/UserManagerImplTest.java" afterPath="$PROJECT_DIR$/src/test/java/sk/dudas/appengine/viacnezsperk/service/UserManagerImplTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/appengine-web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/appengine-web.xml" />
     </list>
     <ignored path="viacnezsperkapp1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,76 +66,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="UserController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/controller/UserController.java">
+      <file leaf-file-name="appengine-web.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/appengine-web.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="161" column="40" selection-start="7060" selection-end="7060" vertical-scroll-proportion="-23.16">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="spring-servlet.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-servlet.xml">
-          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="44" selection-start="1213" selection-end="1213" vertical-scroll-proportion="-9.444445">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserManager.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/UserManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="0" selection-start="557" selection-end="557" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PicasaManager.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/PicasaManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="0" selection-start="627" selection-end="627" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PicasaManagerImpl.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/PicasaManagerImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="56" selection-start="2800" selection-end="2800" vertical-scroll-proportion="0.3983549">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Service.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/google/gdata/gdata-java-client/gdata-core-1.0/1.41.0/gdata-core-1.0-1.41.0-sources.jar!/com/google/gdata/client/Service.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="845" column="14" selection-start="30079" selection-end="30079" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserManagerImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/UserManagerImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="5" selection-start="1317" selection-end="1317" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserManagerImplTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/sk/dudas/appengine/viacnezsperk/service/UserManagerImplTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="0" selection-start="1107" selection-end="1236" vertical-scroll-proportion="0.0">
+            <state line="15" column="28" selection-start="537" selection-end="537" vertical-scroll-proportion="0.29964748">
               <folding />
             </state>
           </provider>
@@ -165,7 +93,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/css/style.css" />
         <option value="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/BaseManagerImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/BaseManager.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/appengine-web.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/spring-servlet.xml" />
         <option value="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/UserManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/controller/UserController.java" />
@@ -173,6 +100,7 @@
         <option value="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/PicasaManager.java" />
         <option value="$PROJECT_DIR$/src/test/java/sk/dudas/appengine/viacnezsperk/service/UserManagerImplTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/PicasaManagerImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/appengine-web.xml" />
       </list>
     </option>
   </component>
@@ -1290,7 +1218,11 @@
       <created>1360188195141</created>
       <updated>1360188195141</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="- po uplynuti kvoty albumu v picase, sa vytvori novy album, do ktoreho sa moze nahravat dalej">
+      <created>1368011664107</created>
+      <updated>1368011664107</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1331,7 +1263,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32990867" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29192168" sideWeight="0.24086758" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20379438" sideWeight="0.543379" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19583844" sideWeight="0.49086758" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2619339" sideWeight="0.49086758" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.68835616" sideWeight="0.4902081" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1379,7 +1311,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="- zrusenie transakcie pri ukladani (persist a merge) kvoli galerii. GalleryItemy sa zrazu nedaju ukladat v jednej transakcii" />
+    <option name="LAST_COMMIT_MESSAGE" value="- po uplynuti kvoty albumu v picase, sa vytvori novy album, do ktoreho sa moze nahravat dalej" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1392,7 +1324,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="testy" />
     <MESSAGE value="create, read, write - (este dopracovat delete)" />
     <MESSAGE value="- 404 jsp" />
     <MESSAGE value="- vela vela ;)" />
@@ -1417,6 +1348,7 @@
     <MESSAGE value="- zapracovane cacheovanie" />
     <MESSAGE value="- border radius na obrazkoch + verzia" />
     <MESSAGE value="- zrusenie transakcie pri ukladani (persist a merge) kvoli galerii. GalleryItemy sa zrazu nedaju ukladat v jednej transakcii" />
+    <MESSAGE value="- po uplynuti kvoty albumu v picase, sa vytvori novy album, do ktoreho sa moze nahravat dalej" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1426,27 +1358,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="161" column="40" selection-start="7060" selection-end="7060" vertical-scroll-proportion="-23.16">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/google/gdata/gdata-java-client/gdata-photos-2.0/1.41.0/gdata-photos-2.0-1.41.0.jar!/com/google/gdata/data/photos/AlbumEntry.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="246" selection-end="246" vertical-scroll-proportion="0.14026402">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/installed/java/src.zip!/java/util/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="17" selection-start="4126" selection-end="4126" vertical-scroll-proportion="0.33229813">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/sk/dudas/appengine/viacnezsperk/AbstractSecurityTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="35" column="26" selection-start="1250" selection-end="1250" vertical-scroll-proportion="0.33333334">
@@ -1512,21 +1423,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/sk/dudas/appengine/viacnezsperk/service/UserManagerImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="1107" selection-end="1236" vertical-scroll-proportion="0.0">
+        <state line="36" column="0" selection-start="1107" selection-end="1236" vertical-scroll-proportion="0.30082256">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/UserManagerImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="5" selection-start="1317" selection-end="1317" vertical-scroll-proportion="0.0">
+        <state line="39" column="5" selection-start="1317" selection-end="1317" vertical-scroll-proportion="0.059929494">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/google/gdata/gdata-java-client/gdata-core-1.0/1.41.0/gdata-core-1.0-1.41.0-sources.jar!/com/google/gdata/client/Service.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="845" column="14" selection-start="30079" selection-end="30079" vertical-scroll-proportion="0.0">
+        <state line="845" column="14" selection-start="30079" selection-end="30079" vertical-scroll-proportion="0.26556993">
           <folding />
         </state>
       </provider>
@@ -1534,6 +1445,30 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/PicasaManagerImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="67" column="56" selection-start="2800" selection-end="2800" vertical-scroll-proportion="0.3983549">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-servlet.xml">
+      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="44" selection-start="1213" selection-end="1213" vertical-scroll-proportion="-9.444445">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sk/dudas/appengine/viacnezsperk/service/UserManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="557" selection-end="557" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/appengine-web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="28" selection-start="537" selection-end="537" vertical-scroll-proportion="0.29964748">
           <folding />
         </state>
       </provider>
