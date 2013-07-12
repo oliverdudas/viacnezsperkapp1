@@ -90,9 +90,12 @@ public class PicasaManagerImpl implements PicasaManager {
         UserFeed userAlbumFeed = getUserAlbumFeed(myService);
         List<GphotoEntry> entries = userAlbumFeed.getEntries();
         for (GphotoEntry entry : entries) {
-            Integer photosLeftCount = entry.getExtension(GphotoPhotosLeft.class).getValue();
-            if (photosLeftCount > 0) {
-                return entry.getGphotoId();
+            String titleText = entry.getTitle().getPlainText();
+            if (titleText.startsWith(VIACNEZSPERK) && entry.hasExtension(GphotoPhotosLeft.class)) {
+                Integer photosLeftCount = entry.getExtension(GphotoPhotosLeft.class).getValue();
+                if (photosLeftCount > 0) {
+                    return entry.getGphotoId();
+                }
             }
         }
         int postfix = entries.size() + 1;
