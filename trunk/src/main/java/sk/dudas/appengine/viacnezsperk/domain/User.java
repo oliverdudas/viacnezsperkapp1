@@ -38,10 +38,10 @@ public class User extends BaseEntity implements UserDetails {
     private String mainURL;
     private Text content;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Role.class)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Role.class)
     private Collection<Role> roles;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = GalleryItem.class)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = GalleryItem.class)
     private Collection<GalleryItem> galleryItems;
 
     public Collection<? extends GrantedAuthority> getAuthorities() {
