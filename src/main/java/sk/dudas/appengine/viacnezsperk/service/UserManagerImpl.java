@@ -55,13 +55,13 @@ public class UserManagerImpl extends BaseManagerImpl<Key, User> implements UserM
             user.setModifiedBy(fullname);
             mergeNonTransactional(user);
         }
-        updateUsersInCache(user);
+//        updateUsersInCache(user);
     }
 
     @Override
     public void removeUser(Key key) {
         remove(key);
-        removeUserFromCache(key);
+//        removeUserFromCache(key);
     }
 
     private void removeUserFromCache(Key key) {
@@ -111,7 +111,7 @@ public class UserManagerImpl extends BaseManagerImpl<Key, User> implements UserM
             return users;
         } else {
             users = new ArrayList<User>(findAll());
-            putObjectToCache(USERS, users);
+//            putObjectToCache(USERS, users);
         }
         return users;
     }
