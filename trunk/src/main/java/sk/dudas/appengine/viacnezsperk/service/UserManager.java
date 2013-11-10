@@ -20,9 +20,7 @@ public interface UserManager extends BaseManager<Key, User> {
 
     void persistOrMergeNonTransactionalUser(User user);
 
-    List<User> findAllUnattachedUsers();
-
-    List<User> getUsers(String searchValue);
+    User findUserById(long id);
 
     void removeUser(Key key);
 }

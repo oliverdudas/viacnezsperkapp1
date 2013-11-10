@@ -1,6 +1,5 @@
 package sk.dudas.appengine.viacnezsperk.dao;
 
-import com.google.appengine.api.datastore.KeyFactory;
 import org.springframework.orm.jpa.JpaCallback;
 import org.springframework.orm.jpa.support.JpaDaoSupport;
 import sk.dudas.appengine.viacnezsperk.domain.BaseEntity;
@@ -105,6 +104,20 @@ public abstract class BaseDaoJpa<K, E extends BaseEntity> extends JpaDaoSupport 
         });
     }
 
+    @Override
+    public List<E> find(final int count) {
+        return getJpaTemplate().execute(new JpaCallback<List<E>>() {
+            public List<E> doInJpa(EntityManager em) throws PersistenceException {
+                Query query = em.createQuery("SELECT h FROM " + entityClass.getName() + " h");
+                query.setFirstResult(0); // Index of first row to be retrieved.
+                query.setMaxResults(count);
+                List<E> resultList = (List<E>) query.getResultList();
+                resultList.size();
+                return resultList;
+            }
+        });
+    }
+
     public <T extends BaseEntity> List<T> findAllEntities() {
         return getJpaTemplate().execute(new JpaCallback<List<T>>() {
 
@@ -126,4 +139,5 @@ public abstract class BaseDaoJpa<K, E extends BaseEntity> extends JpaDaoSupport 
             }
         });
     }
+
 }

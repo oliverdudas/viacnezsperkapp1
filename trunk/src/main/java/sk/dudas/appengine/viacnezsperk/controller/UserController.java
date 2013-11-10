@@ -20,7 +20,9 @@ import sk.dudas.appengine.viacnezsperk.controller.bind.CustomTextBinder;
 import sk.dudas.appengine.viacnezsperk.controller.validator.UserValidator;
 import sk.dudas.appengine.viacnezsperk.domain.GalleryItem;
 import sk.dudas.appengine.viacnezsperk.domain.User;
+import sk.dudas.appengine.viacnezsperk.domain.UserBrowse;
 import sk.dudas.appengine.viacnezsperk.service.PicasaManager;
+import sk.dudas.appengine.viacnezsperk.service.UserBrowseManager;
 import sk.dudas.appengine.viacnezsperk.service.UserManager;
 
 import javax.servlet.http.HttpServletRequest;
@@ -55,6 +57,9 @@ public class UserController {
     private UserManager userManager;
 
     @Autowired
+    private UserBrowseManager userBrowseManager;
+
+    @Autowired
     private PicasaManager picasaManager;
 
     @Autowired
@@ -76,9 +81,9 @@ public class UserController {
     public void list(HttpServletRequest request, ModelMap modelMap, @RequestParam(defaultValue = "0") int p) {
         logger.log(Level.INFO, "Zoznam deti");
 
-        PagedListHolder<User> pagedListHolder;
-        List<User> all = userManager.getUsers((String) request.getSession().getAttribute(SEARCH_VALUE));
-        pagedListHolder = new PagedListHolder<User>(all);
+        PagedListHolder<UserBrowse> pagedListHolder;
+        List<UserBrowse> all = userBrowseManager.getUsers((String) request.getSession().getAttribute(SEARCH_VALUE));
+        pagedListHolder = new PagedListHolder<UserBrowse>(all);
         int pageSize = 25;
         pagedListHolder.setPageSize(pageSize);
         MutableSortDefinition sort = (MutableSortDefinition) pagedListHolder.getSort();
@@ -101,7 +106,7 @@ public class UserController {
             child = new User();
         } else {
             logger.log(Level.INFO, "Editing child.");
-            child = userManager.findById(id);
+            child = userManager.findUserById(id);
         }
         modelMap.addAttribute(CHILD_COMMAND, child);
     }

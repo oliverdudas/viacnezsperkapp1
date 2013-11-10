@@ -1,11 +1,8 @@
 package sk.dudas.appengine.viacnezsperk.service;
 
 import com.google.appengine.api.datastore.Key;
-import com.google.gdata.data.photos.AlbumEntry;
-import org.apache.commons.fileupload.disk.DiskFileItem;
-import org.gmr.web.multipart.GFileItem;
-import org.gmr.web.multipart.GMultipartFile;
 import org.junit.Test;
+import static org.junit.Assert.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import sk.dudas.appengine.viacnezsperk.AbstractSecurityTest;
 import sk.dudas.appengine.viacnezsperk.domain.GalleryItem;
@@ -38,6 +35,26 @@ public class UserManagerImplTest extends AbstractSecurityTest {
 //    public void testUpload() throws Exception {
 //        picasaManager.getAlbumIdWithFreeSpaceLeft(null);
 //    }
+
+
+    @Test
+    public void testFindAllUsers() throws Exception {
+        List<User> all = userManager.findAll();
+        for (User user : all) {
+            long id = user.getKey().getId();
+            User byId = userManager.findById(id);
+            System.out.println(byId);
+        }
+
+        System.out.println(all.size());
+    }
+
+    @Test
+    public void testFindUsers() throws Exception {
+        int count = 5;
+        List<User> users = userManager.find(count);
+        assertEquals(count, users.size());
+    }
 
     @Test
     public void testGalleryItems() throws Exception {

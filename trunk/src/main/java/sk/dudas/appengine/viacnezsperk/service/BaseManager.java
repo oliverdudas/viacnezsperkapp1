@@ -43,6 +43,8 @@ public interface BaseManager<K, E> {
     //    FIND
     List<E> findAll();
 
+    List<E> find(int count);
+
     E findById(K id);
 
     E findById(long id);

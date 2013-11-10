@@ -46,4 +46,6 @@ public interface BaseDao<K, E> {
     <T extends BaseEntity> List<T> findAllEntities();
 
     Integer removeAll();
+
+    List<E> find(int count);
 }

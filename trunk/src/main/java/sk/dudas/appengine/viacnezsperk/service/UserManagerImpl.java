@@ -28,11 +28,13 @@ import java.util.List;
 @Service("userManager")
 public class UserManagerImpl extends BaseManagerImpl<Key, User> implements UserManager {
 
-    private static final String USERS = "USERS";
-
     @Autowired
     @Qualifier("userDao")
     private UserDao dao;
+
+    @Autowired
+    @Qualifier("userBrowseManager")
+    private UserBrowseManager userBrowseManager;
 
     @PostConstruct
     public final void init() {
@@ -55,41 +57,13 @@ public class UserManagerImpl extends BaseManagerImpl<Key, User> implements UserM
             user.setModifiedBy(fullname);
             mergeNonTransactional(user);
         }
-//        updateUsersInCache(user);
+        userBrowseManager.updateUsersInCache(user);
     }
 
     @Override
     public void removeUser(Key key) {
         remove(key);
-//        removeUserFromCache(key);
-    }
-
-    private void removeUserFromCache(Key key) {
-        List<User> unattachedUsers = findAllUnattachedUsers();
-        for (User unattachedUser : unattachedUsers) {
-            if (unattachedUser.getKey().getId() == key.getId()) {
-                unattachedUsers.remove(unattachedUser);
-                putObjectToCache(USERS, unattachedUsers);
-                break;
-            }
-        }
-    }
-
-    private void updateUsersInCache(User user) {
-        List<User> unattachedUsers = findAllUnattachedUsers();
-        if (user.getKey() != null) {
-            for (User unattachedUser : unattachedUsers) {
-                if (unattachedUser.getKey().getId() == user.getKey().getId()) {
-                    unattachedUsers.remove(unattachedUser);
-                    unattachedUsers.add(user);
-                    putObjectToCache(USERS, unattachedUsers);
-                    break;
-                }
-            }
-        } else {
-            unattachedUsers.add(user);
-            putObjectToCache(USERS, unattachedUsers);
-        }
+        userBrowseManager.removeUserFromCache(key);
     }
 
     private void addDefaultRole(User child) {
@@ -98,39 +72,27 @@ public class UserManagerImpl extends BaseManagerImpl<Key, User> implements UserM
         child.setRoles(roles);
     }
 
-    /**
-     * This creation of new list is required beacause of directly returned unserializable list from datastore.
-     * The returned list is NOT SERIALIZABLE, thus, we cannot put the returned list to the appengine's session.
-     * To make the returned list serializable, we have to create new one.
-     *
-     * @return
-     */
-    public List<User> findAllUnattachedUsers() {
-        List<User> users = getObjectFromCache(USERS);
-        if (users != null) {
-            return users;
-        } else {
-            users = new ArrayList<User>(findAll());
-//            putObjectToCache(USERS, users);
-        }
-        return users;
-    }
+//    public List<User> getUsers(String searchValue) {
+//        List<User> allUsers = findAllUnattachedUsers();
+//        if (searchValue != null && !searchValue.isEmpty()) {
+//            List<User> predicateUsers = new ArrayList<User>();
+//            for (User user : allUsers) {
+//                String allNames = StringUtils.normalize(user.getAllNames());
+//                String search = StringUtils.normalize(searchValue);
+//                if (allNames.contains(search)) {
+//                    predicateUsers.add(user);
+//                }
+//            }
+//            return predicateUsers;
+//        } else {
+//            return allUsers;
+//        }
+//    }
 
-    public List<User> getUsers(String searchValue) {
-        List<User> allUsers = findAllUnattachedUsers();
-        if (searchValue != null && !searchValue.isEmpty()) {
-            List<User> predicateUsers = new ArrayList<User>();
-            for (User user : allUsers) {
-                String allNames = StringUtils.normalize(user.getAllNames());
-                String search = StringUtils.normalize(searchValue);
-                if (allNames.contains(search)) {
-                    predicateUsers.add(user);
-                }
-            }
-            return predicateUsers;
-        } else {
-            return allUsers;
-        }
+    public User findUserById(long id) {
+        User byId = findById(id);
+        byId.getContent(); // fetching lazy field
+        byId.getGalleryItems(); // fetching lazy field
+        return byId;
     }
-
 }

@@ -99,7 +99,7 @@
                     <tbody>
                     <%--@elvariable id="child" type="sk.dudas.appengine.viacnezsperk.domain.User"--%>
                     <c:forEach items="${holder.pageList}" var="child">
-                        <c:if test="${!child.admin}">
+                        <%--<c:if test="${!child.admin}">--%>
                             <tr id="${child.key.id}">
                                 <td class="firsttd">
                                     <div>${child.username}</div>
@@ -122,7 +122,7 @@
                                             key="insight"/></a></div>
                                 </td>
                             </tr>
-                        </c:if>
+                        <%--</c:if>--%>
                     </c:forEach>
                     </tbody>
                 </table>
