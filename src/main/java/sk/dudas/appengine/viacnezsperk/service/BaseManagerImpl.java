@@ -130,6 +130,10 @@ public abstract class BaseManagerImpl<K, E extends BaseEntity> implements BaseMa
         return baseDao.findAll();
     }
 
+    public List<E> find(int count) {
+        return baseDao.find(count);
+    }
+
     public <T extends BaseEntity> List<T> findAllEntities() {
         return baseDao.findAllEntities();
     }

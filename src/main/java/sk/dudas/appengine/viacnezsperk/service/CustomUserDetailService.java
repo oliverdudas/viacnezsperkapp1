@@ -1,6 +1,7 @@
 package sk.dudas.appengine.viacnezsperk.service;
 
 import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.Text;
 import com.google.appengine.api.utils.SystemProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -11,11 +12,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import sk.dudas.appengine.viacnezsperk.dao.UserDetailDao;
+import sk.dudas.appengine.viacnezsperk.domain.GalleryItem;
 import sk.dudas.appengine.viacnezsperk.domain.Role;
 import sk.dudas.appengine.viacnezsperk.domain.User;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -76,7 +79,16 @@ public class CustomUserDetailService extends BaseManagerImpl<Key, User> implemen
             roles.add(new Role(roleName));
         }
         user.setRoles(roles);
+        user.setContent(new Text("aaaaaaaaaaaa"));
+        user.setGalleryItems(getTestGalleryItems());
         userManager.persistEntity(user);
+    }
+
+    private Collection<GalleryItem> getTestGalleryItems() {
+        ArrayList<GalleryItem> galleryItems = new ArrayList<GalleryItem>();
+        galleryItems.add(new GalleryItem("1", "url", "url2"));
+        galleryItems.add(new GalleryItem("2", "url3", "url4"));
+        return galleryItems;
     }
 
     private void initUsers() {

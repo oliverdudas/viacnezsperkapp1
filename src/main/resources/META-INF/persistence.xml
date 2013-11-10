@@ -6,6 +6,7 @@
     <persistence-unit name="transactions-optional">
         <provider>org.datanucleus.store.appengine.jpa.DatastorePersistenceProvider</provider>
         <class>sk.dudas.appengine.viacnezsperk.domain.User</class>
+        <class>sk.dudas.appengine.viacnezsperk.domain.UserBrowse</class>
         <class>sk.dudas.appengine.viacnezsperk.domain.Role</class>
         <properties>
             <property name="datanucleus.NontransactionalRead" value="true"/>

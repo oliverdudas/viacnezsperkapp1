@@ -42,7 +42,7 @@ public class HomeController {
         User user;
         if (loggedUser.isAdmin()) {
             if (id != 0) {
-                user = userManager.findById(id);
+                user = userManager.findUserById(id);
                 showCloseHeaderType = true;
             } else {
                 return "redirect:" + UserController.ADMIN_CHILDREN_VIEW;
