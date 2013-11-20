@@ -39,17 +39,17 @@ public class HomeController {
 
         boolean showCloseHeaderType = false;
         User loggedUser = MainUtil.getLoggedUser();
-        User user;
         if (loggedUser.isAdmin()) {
             if (id != 0) {
-                user = userManager.findUserById(id);
                 showCloseHeaderType = true;
             } else {
                 return "redirect:" + UserController.ADMIN_CHILDREN_VIEW;
             }
         } else {
-            user = loggedUser;
+            id = loggedUser.getKey().getId();
         }
+
+        User user = userManager.findUserById(id);
 
         modelMap.addAttribute("user", user);
         modelMap.addAttribute("showCloseHeaderType", showCloseHeaderType);

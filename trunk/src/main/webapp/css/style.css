@@ -392,3 +392,15 @@ input[type="submit"]:hover, input[type="button"]:hover {
 hr {
     margin: 20px 0;
 }
+
+footer#footer #footerContent {
+    margin: 10px auto;
+    /*border-top: 3px solid #1C1C1C;*/
+    overflow: hidden;
+    padding: 38px 0 35px;
+    width: 950px;
+}
+
+footer#footer #footerContent a {
+    text-decoration: none;
+}
